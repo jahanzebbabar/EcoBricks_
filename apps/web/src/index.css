@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    /* Cream / Off-white */
+    --background: 40 20% 96%;
+    /* Charcoal */
+    --foreground: 0 0% 16%;
+    /* Deep Forest Green */
+    --primary: 144 33% 18%;
+    --primary-foreground: 40 20% 96%;
+    /* Sand Beige */
+    --secondary: 33 24% 81%;
+    --secondary-foreground: 0 0% 16%;
+    /* Clay Brown */
+    --accent: 26 39% 39%;
+    --accent-foreground: 40 20% 96%;
+    
+    --muted: 0 0% 90%;
+    --muted-foreground: 0 0% 40%;
+    
+    --border: 33 20% 80%;
+    --input: 40 20% 96%;
+    --ring: 144 33% 18%;
+    
+    --card: 40 20% 96%;
+    --card-foreground: 0 0% 16%;
+    
+    --radius: 0rem; /* Architectural sharp edges */
+  }
+
+  .dark {
+    --background: 0 0% 16%;
+    --foreground: 40 20% 96%;
+    --primary: 144 33% 18%;
+    --primary-foreground: 40 20% 96%;
+    --secondary: 33 24% 81%;
+    --secondary-foreground: 0 0% 16%;
+    --accent: 26 39% 39%;
+    --accent-foreground: 40 20% 96%;
+    --border: 0 0% 25%;
+    --input: 0 0% 16%;
+    --ring: 144 33% 18%;
+    --card: 0 0% 16%;
+    --card-foreground: 40 20% 96%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary selection:text-primary-foreground;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply max-w-[1400px] mx-auto px-6 md:px-12 lg:px-24;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32 lg:py-40;
+  }
+
+  .btn-architectural {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-foreground text-foreground hover:bg-foreground hover:text-background transition-colors duration-500 font-sans tracking-widest uppercase text-xs;
+  }
+
+  .btn-architectural-dark {
+    @apply inline-flex items-center justify-center px-8 py-4 border border-background text-background hover:bg-background hover:text-foreground transition-colors duration-500 font-sans tracking-widest uppercase text-xs;
+  }
+
+  .nav-link {
+    @apply relative font-sans text-sm tracking-widest uppercase overflow-hidden;
+  }
+
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-full h-[1px] bg-current transform scale-x-0 origin-right transition-transform duration-500 ease-out;
+  }
+
+  .nav-link:hover::after, .nav-link.active::after {
+    @apply scale-x-100 origin-left;
+  }
+
+  .geometric-frame {
+    @apply relative border border-foreground/20 p-8 md:p-12;
+  }
+  
+  .geometric-frame::before {
+    content: '';
+    @apply absolute top-4 left-4 right-4 bottom-4 border border-foreground/10 pointer-events-none;
+  }
+
+  .bg-faded-text {
+    @apply absolute inset-0 overflow-hidden pointer-events-none flex items-center justify-center z-0 opacity-[0.03] select-none;
+  }
+  
+  .bg-faded-text span {
+    @apply text-[15vw] font-serif font-bold leading-none whitespace-nowrap text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .blueprint-grid {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+  }
+  
+  .blueprint-grid-dark {
+    background-size: 40px 40px;
+    background-image: 
+      linear-gradient(to right, rgba(255,255,255,0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,0.05) 1px, transparent 1px);
+  }
+}
