@@ -1,4 +1,4 @@
-import React from 'react';
+mport React from 'react';
 
 const TextureOverlay = ({ type = 'concrete', opacity = 0.15, className = '' }) => {
   const textures = {
