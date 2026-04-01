@@ -43,7 +43,7 @@ const EcorePage = () => {
               EcoCore™<br/>Composite.
             </h1>
             <p className="font-sans font-light text-cream/70 text-xl md:text-2xl max-w-2xl leading-relaxed">
-              A paradigm shift in structural engineering. 65% lower embodied carbon, superior thermal mass, and uncompromising load-bearing capacity.
+              A paradigm shift. 65% lower embodied carbon, superior thermal mass, and uncompromising capacity.
             </p>
           </motion.div>
         </div>
@@ -68,7 +68,7 @@ const EcorePage = () => {
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-sand"></div>
                   <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-sand text-sm">01. Recycled Mineral Aggregates</h3>
                   <p className="font-sans font-light text-cream/60 leading-relaxed">
-                    Post-industrial mineral waste forms the structural foundation, reducing landfill burden while maintaining superior strength characteristics through optimized particle packing.
+                    Mineral waste forms the foundation, reducing landfills while maintaining superior structural strength.
                   </p>
                 </div>
                 
@@ -76,7 +76,7 @@ const EcorePage = () => {
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-cream"></div>
                   <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-cream text-sm">02. Geopolymer Binders</h3>
                   <p className="font-sans font-light text-cream/60 leading-relaxed">
-                    Alkali-activated industrial by-products replace traditional Portland cement. This creates a dense, highly cross-linked aluminosilicate matrix with exceptional chemical resistance.
+                    Replacing traditional cement to create a dense matrix with exceptional chemical resistance.
                   </p>
                 </div>
                 
@@ -84,7 +84,7 @@ const EcorePage = () => {
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-clay"></div>
                   <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-clay text-sm">03. Micro-Fiber Stabilizers</h3>
                   <p className="font-sans font-light text-cream/60 leading-relaxed">
-                    Dispersed polymer reinforcement improves tensile strength, crack resistance, and impact tolerance, ensuring structural integrity under dynamic loading.
+                    Polymer reinforcement improves tensile strength, crack resistance, and impact tolerance.
                   </p>
                 </div>
               </div>

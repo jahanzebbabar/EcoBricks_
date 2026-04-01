@@ -2,36 +2,27 @@ import React from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ArrowLeft } from 'lucide-react';
 
 const HomePage = () => {
   const projects = [
     {
       id: 1,
-      title: 'The Green Tower',
-      image: 'https://images.unsplash.com/photo-1690410386740-bd9219e74eb2?w=1200',
-      description: 'A 40-story commercial high-rise utilizing our advanced interlocking structural blocks to achieve LEED Platinum certification.',
-      materials: 'EcoCore™ High-Density, EcoShell™ Facade',
-      impact: '2,000 tons of waste diverted',
-      location: 'Commercial / Seattle, WA'
+      title: 'SMME, NUST',
+      image: '/images/project-1.png',
+      description: 'In collaboration with the NUST School of Mechanical & Manufacturing Engineering, SMME (our beloved institute), introducing Eco Friendly Tiles on a staircase. ♻️ CO2 Reduction: Cut 78 kg CO2 equivalent ♻️ Plastic Waste Reduction: Eliminated 100 kg of plastic bags waste ♻️ Water Conservation: Saved 207 liters',
     },
     {
       id: 2,
-      title: 'Eco-Industrial Park',
-      image: 'https://images.unsplash.com/photo-1568201635633-989f64b31c57?w=1200',
-      description: 'A sprawling manufacturing complex built entirely from recycled mineral aggregates, setting a new standard for industrial construction.',
-      materials: 'Heavy-Duty Industrial Block',
-      impact: '50% carbon reduction vs traditional concrete',
-      location: 'Industrial / Austin, TX'
+      title: 'F9 Park CDA',
+      image: '/images/project-2.png',
+      description: 'Commercial deployment in collaboration with National University of Sciences and Technology (NUST) and Capital Development Authority (CDA), introducing 500 Eco-Tiles at F9 Park. Key Impact: CO2 Reduction: Cut 225 kg CO2 equivalent. Plastic Waste Reduction: Eliminate 100 kg of plastic bags waste. Water Conservation: Save 207 liters.',
     },
     {
       id: 3,
-      title: 'Sustainable Housing Estate',
-      image: 'https://images.unsplash.com/photo-1521275247082-8e7931abe658?w=1200',
-      description: 'A 200-unit residential development focusing on thermal efficiency and rapid construction timelines using our insulated core blocks.',
-      materials: 'Standard EcoBrick, Insulated Core Block',
-      impact: '40% improvement in thermal efficiency',
-      location: 'Residential / Portland, OR'
+      title: 'HCCS School',
+      image: '/images/project-3.png',
+      description: 'Emerald Data Solutions is revolutionizing the way schools and universities manage their facilities. Our intuitive maintenance management system enhances operational efficiency, allowing educational institutions to dedicate more time to student instruction.'
     }
   ];
 
@@ -219,70 +210,62 @@ const HomePage = () => {
       </section>
 
       {/* Featured Projects (Case Studies) */}
-      <section className="section-padding relative bg-cream">
+      <section className="section-padding relative bg-cream overflow-hidden">
+        <div className="absolute inset-0 blueprint-grid opacity-10"></div>
         <div className="bg-faded-text">
-          <span>PROJECTS</span>
+          <span>PORTFOLIO</span>
         </div>
+        
         <div className="container-custom relative z-10">
-          <div className="flex flex-col md:flex-row justify-between items-end mb-20">
-            <h2 className="text-4xl md:text-6xl text-charcoal max-w-2xl">
-              Featured Projects
-            </h2>
-            <span className="font-sans text-xs tracking-widest uppercase text-charcoal/50 mt-4 md:mt-0">
-              Real-world applications
-            </span>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+            <div className="max-w-2xl">
+              <div className="font-sans text-xs tracking-widest uppercase text-clay mb-4">Selected Case Studies</div>
+              <h2 className="text-4xl md:text-5xl text-charcoal font-serif">Featured Projects</h2>
+            </div>
+            <div className="flex gap-4 mt-8 md:mt-0">
+              <button className="flex items-center justify-center w-12 h-12 border border-charcoal/20 rounded-full hover:bg-charcoal hover:text-cream transition-colors">
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button className="flex items-center justify-center w-12 h-12 border border-charcoal/20 rounded-full hover:bg-charcoal hover:text-cream transition-colors">
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          <div className="space-y-32">
-            {projects.map((project, index) => {
-              const isEven = index % 2 === 0;
-              return (
-                <motion.div 
-                  key={project.id}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.8 }}
-                  className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-20 items-center`}
-                >
-                  {/* Image Side */}
-                  <div className="w-full lg:w-7/12 relative">
-                    <div className="geometric-frame p-4">
-                      <div className="aspect-[4/3] overflow-hidden bg-charcoal relative">
-                        <img 
-                          src={project.image} 
-                          alt={project.title} 
-                          className="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-1000 mix-blend-luminosity hover:mix-blend-normal"
-                        />
-                        <div className="absolute top-4 left-4 bg-cream text-charcoal font-sans text-[10px] tracking-widest uppercase px-3 py-1">
-                          {project.location}
-                        </div>
-                      </div>
-                    </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {projects.map((project, index) => (
+              <motion.div 
+                key={project.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.15 }}
+                className="group"
+              >
+                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-4 h-full flex flex-col">
+                  <div className="relative aspect-[4/5] overflow-hidden mb-8 bg-charcoal">
+                    <img 
+                      src={project.image} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-
-                  {/* Text Side */}
-                  <div className="w-full lg:w-5/12">
-                    <div className="font-sans text-xs tracking-widest uppercase text-clay mb-4">Case Study 0{project.id}</div>
-                    <h3 className="text-3xl md:text-4xl mb-6">{project.title}</h3>
-                    <p className="font-sans font-light text-charcoal/80 leading-relaxed mb-8">
+                  
+                  <div className="flex flex-col flex-grow">
+                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-clay mb-3">Project 0{project.id}</div>
+                    <h3 className="text-2xl mb-4 text-charcoal leading-tight">{project.title}</h3>
+                    <p className="font-sans font-light text-charcoal/70 text-sm leading-relaxed mb-8 flex-grow">
                       {project.description}
                     </p>
                     
-                    <div className="space-y-4 border-t border-charcoal/10 pt-6 font-sans text-sm">
-                      <div className="flex flex-col sm:flex-row sm:justify-between border-b border-charcoal/5 pb-4 gap-2">
-                        <span className="text-charcoal/50 uppercase tracking-wider text-xs">Materials Used</span>
-                        <span className="font-medium text-charcoal text-right">{project.materials}</span>
-                      </div>
-                      <div className="flex flex-col sm:flex-row sm:justify-between border-b border-charcoal/5 pb-4 gap-2">
-                        <span className="text-charcoal/50 uppercase tracking-wider text-xs">Key Impact</span>
-                        <span className="font-medium text-forest text-right">{project.impact}</span>
-                      </div>
-                    </div>
+                    <Link to="/services" className="inline-flex items-center text-xs tracking-widest uppercase text-charcoal font-medium hover:text-clay transition-colors mt-auto">
+                      Case Study <ArrowUpRight className="ml-2 w-3.5 h-3.5" />
+                    </Link>
                   </div>
-                </motion.div>
-              );
-            })}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

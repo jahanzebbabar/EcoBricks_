@@ -36,7 +36,7 @@ const AboutPage = () => {
           >
             <h1 className="text-5xl md:text-7xl mb-8">Redefining the Built Environment</h1>
             <p className="font-sans font-light text-charcoal/70 text-xl md:text-2xl leading-relaxed">
-              We exist at the intersection of material science and architectural design, engineering solutions that respect both structural demands and planetary boundaries.
+              Engineering architectural solutions that respect our planetary boundaries.
             </p>
           </motion.div>
         </div>
@@ -50,7 +50,7 @@ const AboutPage = () => {
             <div className="font-sans text-xs tracking-widest uppercase text-sand mb-6">Our Mission</div>
             <h2 className="text-3xl md:text-4xl mb-6 leading-tight">To engineer materials that regenerate rather than deplete.</h2>
             <p className="font-sans font-light text-cream/70 leading-relaxed">
-              We provide high-performance, sustainable building materials that reduce environmental impact without compromising on architectural quality, durability, or aesthetic flexibility.
+              Providing high-performance, sustainable building materials that don't compromise on quality or aesthetics.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ const AboutPage = () => {
             <div className="font-sans text-xs tracking-widest uppercase text-clay mb-6">Our Vision</div>
             <h2 className="text-3xl md:text-4xl mb-6 leading-tight">A future where every structure acts as a carbon sink.</h2>
             <p className="font-sans font-light text-cream/70 leading-relaxed">
-              We envision a construction industry operating in harmony with nature, utilizing materials that stand as testaments to human ingenuity and environmental responsibility.
+              A construction industry operating in perfect harmony with nature, utilizing responsible materials.
             </p>
           </div>
         </div>
@@ -98,15 +98,15 @@ const AboutPage = () => {
             <div className="space-y-12">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-2xl mb-3">Structural Integrity First</h4>
-                <p className="font-sans font-light text-charcoal/70 leading-relaxed">Sustainability means nothing if the material fails. We engineer for extreme durability, ensuring our products meet or exceed all international building codes for load-bearing applications.</p>
+                <p className="font-sans font-light text-charcoal/70 leading-relaxed">Engineered for extreme durability, meeting all international building codes for load-bearing applications.</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-2xl mb-3">Radical Transparency</h4>
-                <p className="font-sans font-light text-charcoal/70 leading-relaxed">From raw material sourcing to embodied carbon calculations, we provide complete lifecycle analysis data to architects and engineers, enabling informed design decisions.</p>
+                <p className="font-sans font-light text-charcoal/70 leading-relaxed">Complete lifecycle analysis data allows architects to make informed, sustainable design decisions.</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-2xl mb-3">Circular Manufacturing</h4>
-                <p className="font-sans font-light text-charcoal/70 leading-relaxed">Our facilities operate on closed-loop systems. Water is recycled, energy is renewable, and our primary raw materials are diverted from industrial waste streams.</p>
+                <p className="font-sans font-light text-charcoal/70 leading-relaxed">Closed-loop facilities with recycled water, renewable energy, and raw materials diverted from waste.</p>
               </motion.div>
             </div>
           </div>

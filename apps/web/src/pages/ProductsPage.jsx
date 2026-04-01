@@ -1,68 +1,97 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Helmet } from 'react-helmet';
 import { motion } from 'framer-motion';
 import { ArrowRight, Download, Star } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ProductsPage = () => {
-  const [activeFilter, setActiveFilter] = useState('All');
   const { toast } = useToast();
-
-  const filters = ['All', 'Residential', 'Commercial', 'Industrial'];
 
   const products = [
     {
       id: 1,
-      name: 'Standard EcoBrick',
-      category: 'Residential',
-      image: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200',
-      description: 'Engineered for residential load-bearing walls and partitions. Offers superior thermal mass and acoustic insulation compared to traditional masonry.',
+      name: 'EcoPots',
+      category: 'Gardening & Decor',
+      image: '/images/ecopots3.jpg',
+      description: 'Made from recycled plastic and minerals, EcoPots are lightweight, durable, and weatherproof, perfect for modern landscaping and sustainable home decor. Upgrade your garden with eco-friendly pots that combine style, durability, and sustainability.',
       specs: {
-        compression: '15 MPa',
-        thermal: 'R-2.5',
-        weight: '2.8 kg',
-        dimensions: '230 x 110 x 76 mm',
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'Lightweight yet sturdy enough for large plants.',
+        'Versatile': 'Available in multiple configurations to suit your planting needs.',
       },
     },
     {
       id: 2,
-      name: 'Interlocking Structural Block',
-      category: 'Commercial',
-      image: 'https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1200',
-      description: 'Precision-engineered interlocking design eliminates the need for mortar in certain applications, accelerating construction timelines by up to 30%.',
+      name: 'Park Bench',
+      category: 'Outdoor Furniture',
+      image: '/images/park_bench.JPG',
+      description: 'Made from recycled plastic and minerals, Park Benches are lightweight, durable, and weatherproof, perfect for modern public spaces and sustainable urban design. Upgrade your community areas with eco-friendly seating that combines comfort, durability, and sustainability.',
       specs: {
-        compression: '18 MPa',
-        thermal: 'R-3.0',
-        weight: '3.2 kg',
-        dimensions: '300 x 150 x 100 mm',
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'Robust construction meant to withstand heavy public use.',
+        'Versatile': 'Available in multiple configurations to suit community needs.',
       },
     },
     {
       id: 3,
-      name: 'Insulated Core Block',
-      category: 'Commercial',
-      image: 'https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200',
-      description: 'Features an integrated high-density insulation core, providing exceptional thermal performance for passive house and net-zero building designs.',
+      name: 'School Bench',
+      category: 'Educational Furniture',
+      image: '/images/school_bench.JPG',
+      description: 'Made from recycled plastic and minerals, School Benches are lightweight, durable, and weatherproof, perfect for modern educational facilities and sustainable classrooms. Upgrade your campus with eco-friendly desks that combine function, durability, and sustainability.',
       specs: {
-        compression: '22 MPa',
-        thermal: 'R-4.5',
-        weight: '3.5 kg',
-        dimensions: '390 x 190 x 190 mm',
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'Sturdy enough for daily student use while remaining safe.',
+        'Versatile': 'Available in multiple configurations to suit classroom sizes.',
       },
     },
     {
       id: 4,
-      name: 'Heavy-Duty Industrial Block',
-      category: 'Industrial',
-      image: 'https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=1200',
-      description: 'Maximum strength formulation utilizing advanced geopolymer binders for industrial facilities requiring extreme load-bearing capacity and chemical resistance.',
+      name: 'Tea Coasters',
+      category: 'Home Accessories',
+      image: '/images/tea_coaster2.jpg',
+      description: 'Made from recycled plastic and minerals, Tea Coasters are lightweight, durable, and weatherproof, perfect for modern dining settings and sustainable home decor. Upgrade your home with eco-friendly coasters that combine style, durability, and sustainability.',
       specs: {
-        compression: '35 MPa',
-        thermal: 'R-2.0',
-        weight: '4.5 kg',
-        dimensions: '390 x 190 x 190 mm',
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'Heat-resistant and sturdy for holding hot beverages safely.',
+        'Versatile': 'Available in multiple patterns to suit your dining aesthetics.',
       },
     },
+    {
+      id: 5,
+      name: 'Eco-Tiles',
+      category: 'Building Materials',
+      image: '/images/tiles3.jpg',
+      description: 'Made from recycled plastic and minerals, Eco-Tiles are lightweight, durable, and weatherproof, perfect for modern flooring and sustainable structural finishing. Upgrade your property with eco-friendly tiles that combine aesthetics, durability, and sustainability.',
+      specs: {
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'High impact resistance sturdy enough for heavy foot traffic.',
+        'Versatile': 'Available in multiple colors to suit varied design needs.',
+      },
+    },
+    {
+      id: 6,
+      name: 'Corporate Packaging',
+      category: 'Commercial Solutions',
+      image: '/images/corporate_packaging.jpg',
+      description: 'Made from recycled plastic and minerals, Corporate Packaging boxes are lightweight, durable, and weatherproof, perfect for sustainable shipping and brand presentation. Upgrade your logistics with eco-friendly packaging that combines security, durability, and sustainability.',
+      specs: {
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'Protective structure sturdy enough for safe product transit.',
+        'Versatile': 'Available in multiple dimensions to suit shipping demands.',
+      },
+    },
+    {
+      id: 7,
+      name: 'Eco-Shields',
+      category: 'Protective Materials',
+      image: '/images/Shields.jpg',
+      description: 'Made from recycled plastic and minerals, Eco-Shields are lightweight, durable, and weatherproof, perfect for modern safety applications and sustainable structural protection. Upgrade your facility with eco-friendly shields that combine protection, durability, and sustainability.',
+      specs: {
+        'Eco-friendly': 'Made from 100% recycled plastic waste.',
+        'Durable Design': 'High-tensile material sturdy enough for demanding environments.',
+        'Versatile': 'Available in multiple structural configurations for safety.',
+      },
+    }
   ];
 
   const testimonials = [
@@ -92,9 +121,7 @@ const ProductsPage = () => {
     }
   ];
 
-  const filteredProducts = activeFilter === 'All' 
-    ? products 
-    : products.filter(p => p.category === activeFilter);
+
 
   const handleAction = () => {
     toast({
@@ -122,60 +149,49 @@ const ProductsPage = () => {
             transition={{ duration: 0.8 }}
             className="max-w-3xl"
           >
-            <h1 className="text-5xl md:text-7xl mb-6">Material Specifications</h1>
-            <p className="font-sans font-light text-charcoal/70 text-lg md:text-xl leading-relaxed">
-              A comprehensive portfolio of engineered eco-materials designed to meet the rigorous demands of modern architectural projects.
+            <h1 className="text-5xl md:text-7xl mb-6">Sustainable Product Catalog</h1>
+            <p className="font-sans font-light text-charcoal/70 text-lg md:text-xl leading-relaxed mb-10">
+              Discover our range of eco-friendly, durable, and stylish products crafted from 100% recycled plastics and minerals. Designed to meet the rigorous demands of modern sustainable living.
             </p>
+            <a 
+              href="https://ecobricks-106.myshopify.com/" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center px-8 py-4 bg-forest text-cream rounded-full font-sans text-sm tracking-widest uppercase hover:bg-forest/90 transition-colors shadow-sm"
+            >
+              Visit Our Shop Now <ArrowRight className="ml-3 w-4 h-4" />
+            </a>
           </motion.div>
         </div>
       </section>
 
-      {/* Filters */}
-      <section className="py-8 border-b border-charcoal/10 sticky top-24 bg-cream/90 backdrop-blur-md z-30">
-        <div className="container-custom">
-          <div className="flex flex-wrap gap-8">
-            {filters.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => setActiveFilter(filter)}
-                className={`font-sans text-xs tracking-widest uppercase pb-2 border-b-2 transition-colors duration-300 ${
-                  activeFilter === filter
-                    ? 'border-charcoal text-charcoal'
-                    : 'border-transparent text-charcoal/50 hover:text-charcoal hover:border-charcoal/30'
-                }`}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-        </div>
-      </section>
+
 
       {/* Products List - Asymmetrical Split Layout */}
       <section className="pb-24">
-        {filteredProducts.map((product, index) => {
+        {products.map((product, index) => {
           const isEven = index % 2 === 0;
           return (
             <div key={product.id} className="border-b border-charcoal/10">
-              <div className="container-custom py-24">
-                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-16 items-center`}>
+              <div className="container-custom py-12 md:py-16">
+                <div className={`flex flex-col ${isEven ? 'lg:flex-row' : 'lg:flex-row-reverse'} gap-12 lg:gap-16 items-center lg:items-start`}>
                   
                   {/* Image Side */}
                   <motion.div 
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8 }}
-                    className="w-full lg:w-7/12 relative"
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6 }}
+                    className="relative shrink-0 max-w-full"
                   >
-                    <div className="geometric-frame p-4 md:p-6">
-                      <div className="aspect-[4/3] overflow-hidden bg-charcoal relative">
+                    <div className="geometric-frame p-4 md:p-5 inline-block w-full sm:w-auto">
+                      <div className="relative bg-charcoal overflow-hidden flex justify-center items-center">
                         <img 
                           src={product.image} 
                           alt={product.name} 
-                          className="w-full h-full object-cover opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                          className="h-[300px] md:h-[400px] lg:h-[450px] w-auto max-w-full object-contain opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
                         />
-                        <div className="absolute top-4 left-4 bg-cream text-charcoal font-sans text-[10px] tracking-widest uppercase px-3 py-1">
+                        <div className="absolute top-4 left-4 bg-cream text-charcoal font-sans text-[10px] tracking-widest uppercase px-3 py-1 z-10">
                           {product.category}
                         </div>
                       </div>
@@ -184,11 +200,11 @@ const ProductsPage = () => {
 
                   {/* Specs Side */}
                   <motion.div 
-                    initial={{ opacity: 0, y: 40 }}
+                    initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, margin: "-100px" }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
-                    className="w-full lg:w-5/12"
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="w-full lg:flex-1 max-w-3xl"
                   >
                     <div className="font-sans text-xs tracking-widest uppercase text-clay mb-4">Product No. 0{product.id}</div>
                     <h2 className="text-4xl mb-6">{product.name}</h2>
@@ -198,20 +214,11 @@ const ProductsPage = () => {
 
                     <div className="space-y-0 border-t border-charcoal/20">
                       {Object.entries(product.specs).map(([key, value]) => (
-                        <div key={key} className="flex justify-between py-4 border-b border-charcoal/10 font-sans text-sm">
-                          <span className="text-charcoal/50 uppercase tracking-wider text-xs">{key}</span>
+                        <div key={key} className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-6 py-4 border-b border-charcoal/10 font-sans text-sm">
+                          <span className="text-charcoal/50 uppercase tracking-wider text-xs whitespace-nowrap">{key}</span>
                           <span className="font-medium text-charcoal">{value}</span>
                         </div>
                       ))}
-                    </div>
-
-                    <div className="mt-10 flex gap-6">
-                      <button onClick={handleAction} className="btn-architectural">
-                        Request Sample
-                      </button>
-                      <button onClick={handleAction} className="flex items-center justify-center w-12 h-12 border border-charcoal/20 hover:bg-charcoal hover:text-cream transition-colors" aria-label="Download Specs">
-                        <Download className="w-4 h-4" />
-                      </button>
                     </div>
                   </motion.div>
 

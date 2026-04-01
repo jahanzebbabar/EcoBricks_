@@ -69,6 +69,14 @@ const Header = () => {
                 {link.name}
               </Link>
             ))}
+            <a 
+              href="https://ecobricks-106.myshopify.com/" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className={`px-6 py-2 rounded-full font-sans text-xs tracking-widest uppercase transition-colors ml-4 border ${isDarkPage || (isHomePage && !isScrolled) ? 'border-cream text-cream hover:bg-cream hover:text-charcoal' : 'border-charcoal text-charcoal hover:bg-charcoal hover:text-cream'}`}
+            >
+              Shop Now
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -116,6 +124,24 @@ const Header = () => {
                     </motion.div>
                   </div>
                 ))}
+                
+                <div className="overflow-hidden pt-8">
+                  <motion.div
+                    initial={{ y: 40 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.5, delay: 0.2 }}
+                  >
+                    <a
+                      href="https://ecobricks-106.myshopify.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="inline-block border border-cream text-cream px-8 py-4 rounded-full font-sans text-sm tracking-widest uppercase hover:bg-cream hover:text-charcoal transition-colors"
+                    >
+                      Shop Now
+                    </a>
+                  </motion.div>
+                </div>
               </div>
             </motion.div>
           )}

@@ -11,19 +11,19 @@ const ServicesPage = () => {
     {
       id: '01',
       title: 'Consultation & Material Planning',
-      description: 'Expert architectural guidance on selecting the right sustainable materials for your project. We analyze structural requirements, thermal goals, and LEED certification objectives to recommend optimal material configurations.',
+      description: 'Expert guidance on selecting sustainable, LEED-certified materials for your project.',
       image: 'https://images.unsplash.com/photo-1497366216548-37526070297c?w=1200',
     },
     {
       id: '02',
       title: 'Custom Block Engineering',
-      description: 'Tailored material formulations engineered to exact architectural specifications. We develop custom dimensions, finishes, and performance characteristics to meet unique structural demands and aesthetic visions.',
+      description: 'Tailored material formulations engineered to your exact architectural specifications.',
       image: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1200',
     },
     {
       id: '03',
       title: 'Logistics & Distribution',
-      description: 'Precision supply chain management ensuring timely delivery to construction sites. Our logistics network is optimized for minimal carbon footprint during transport, maintaining the sustainability integrity of the project.',
+      description: 'Optimized supply chain management ensuring timely, low-carbon delivery to your site.',
       image: 'https://images.unsplash.com/photo-1586528116311-ad8ed7c80a30?w=1200',
     },
   ];
@@ -63,7 +63,7 @@ const ServicesPage = () => {
           >
             <h1 className="text-5xl md:text-7xl mb-6">Professional Services</h1>
             <p className="font-sans font-light text-charcoal/70 text-lg md:text-xl leading-relaxed">
-              Comprehensive support from initial architectural consultation through custom manufacturing and site delivery.
+              End-to-end architectural and manufacturing support.
             </p>
           </motion.div>
         </div>
@@ -74,9 +74,9 @@ const ServicesPage = () => {
         {services.map((service, index) => {
           const isEven = index % 2 === 0;
           return (
-            <div key={service.id} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} min-h-[600px] border-b border-charcoal/10`}>
+            <div key={service.id} className={`flex flex-col ${isEven ? 'md:flex-row' : 'md:flex-row-reverse'} min-h-[350px] md:min-h-[400px] border-b border-charcoal/10`}>
               {/* Image Half */}
-              <div className="w-full md:w-1/2 relative overflow-hidden bg-charcoal">
+              <div className="w-full md:w-1/2 relative overflow-hidden bg-charcoal min-h-[250px] md:min-h-0">
                 <img 
                   src={service.image} 
                   alt={service.title} 
@@ -86,7 +86,7 @@ const ServicesPage = () => {
               </div>
               
               {/* Text Half */}
-              <div className={`w-full md:w-1/2 flex items-center p-12 md:p-24 ${isEven ? 'bg-cream' : 'bg-sand'}`}>
+              <div className={`w-full md:w-1/2 flex items-center py-10 px-8 md:py-16 md:px-16 ${isEven ? 'bg-cream' : 'bg-sand'}`}>
                 <motion.div 
                   initial={{ opacity: 0, y: 30 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -119,7 +119,7 @@ const ServicesPage = () => {
             <div className="lg:col-span-4">
               <h2 className="text-4xl md:text-5xl mb-6">Project Methodology</h2>
               <p className="font-sans font-light text-cream/70 leading-relaxed">
-                A structured, linear approach ensuring architectural precision and material integrity at every phase of development.
+                A structured approach ensuring precision at every development phase.
               </p>
             </div>
             
