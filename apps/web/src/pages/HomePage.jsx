@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
-import { motion } from 'framer-motion';
+import { motion, useInView, animate } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, ArrowLeft } from 'lucide-react';
+
+const Counter = ({ value, suffix = "", duration = 2, delay = 0 }) => {
+  const [count, setCount] = useState(0);
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
+
+  useEffect(() => {
+    if (isInView) {
+      const controls = animate(0, value, {
+        duration,
+        delay,
+        ease: "easeOut",
+        onUpdate: (latest) => setCount(Math.floor(latest)),
+      });
+      return () => controls.stop();
+    }
+  }, [isInView, value, duration, delay]);
+
+  return <span ref={ref}>{count}{suffix}</span>;
+};
 
 const HomePage = () => {
   const projects = [
@@ -30,16 +50,16 @@ const HomePage = () => {
     <div className="bg-cream min-h-screen relative">
       <Helmet>
         <title>Ecobricks | Engineered From Waste. Built For Tomorrow.</title>
-        <meta name="description" content="Our advanced material systems convert manufacturing waste into durable, scalable construction solutions." />
+        <meta name="description" content="Our advanced material systems convert waste into durable, scalable construction solutions." />
       </Helmet>
 
       {/* Hero Section */}
       <section className="relative h-screen min-h-[800px] flex items-end pb-24 overflow-hidden bg-charcoal">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <img 
-            src="https://images.unsplash.com/photo-1558052643-9a9e9ea8e50a?w=1920&q=80" 
-            alt="Sustainable green building construction" 
+          <img
+            src="https://images.unsplash.com/photo-1558052643-9a9e9ea8e50a?w=1920&q=80"
+            alt="Sustainable green building construction"
             className="w-full h-full object-cover opacity-50 mix-blend-luminosity"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/20"></div>
@@ -65,7 +85,7 @@ const HomePage = () => {
                 <span className="text-sand italic">Built For Tomorrow.</span>
               </h1>
             </motion.div>
-            
+
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -73,7 +93,7 @@ const HomePage = () => {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
             >
               <p className="text-cream/80 font-sans font-light text-lg md:text-xl max-w-2xl leading-relaxed">
-                Our advanced material systems convert manufacturing waste into durable, scalable construction solutions.
+                Our advanced material systems convert waste into durable, scalable construction solutions.
               </p>
               <Link to="/products" className="btn-architectural-dark group whitespace-nowrap shrink-0">
                 View Products
@@ -91,7 +111,7 @@ const HomePage = () => {
         </div>
         <div className="container-custom relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -99,9 +119,9 @@ const HomePage = () => {
               className="lg:col-span-5"
             >
               <div className="font-sans text-xs tracking-widest uppercase text-clay mb-6">Corporate Mission</div>
-              <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Transforming the foundation of modern architecture.</h2>
+              <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Turning non-recyclable waste into durable eco-tiles and furniture  for real-world applications.</h2>
             </motion.div>
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -109,7 +129,7 @@ const HomePage = () => {
               className="lg:col-span-6 lg:col-start-7"
             >
               <p className="font-sans font-light text-charcoal/80 text-lg md:text-xl leading-relaxed mb-8">
-                Ecobricks exists to solve the construction industry's dual crisis: resource depletion and carbon emissions. We engineer high-performance structural materials entirely from industrial by-products, creating a closed-loop system that builds the future without destroying the present.
+                Ecobricks exists to solve the construction industry's dual crisis: resource depletion and carbon emissions. We engineer high-performance structural materials, creating a closed-loop system that builds the future without destroying the present.
               </p>
               <Link to="/about" className="inline-flex items-center font-sans text-sm tracking-widest uppercase hover:text-clay transition-colors border-b border-charcoal pb-1">
                 Read Our Story <ArrowUpRight className="ml-2 w-4 h-4" />
@@ -123,7 +143,7 @@ const HomePage = () => {
       <section className="bg-forest text-cream relative overflow-hidden">
         <div className="absolute inset-0 blueprint-grid-dark opacity-10"></div>
         <div className="absolute inset-0 bg-noise opacity-20"></div>
-        
+
         <div className="container-custom section-padding relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl mb-6">Measurable Impact</h2>
@@ -134,11 +154,11 @@ const HomePage = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
             {[
-              { metric: '2M+', label: 'Tons of Waste Diverted', desc: 'Industrial by-products repurposed into premium materials.' },
-              { metric: '65%', label: 'Carbon Reduction', desc: 'Lower embodied carbon compared to traditional clay masonry.' },
-              { metric: '100+', label: 'Year Lifespan', desc: 'Engineered for extreme durability and structural longevity.' }
+              { value: 2, suffix: 'M+', label: 'Tons of Waste Diverted', desc: 'Industrial by-products repurposed into premium materials.' },
+              { value: 65, suffix: '%', label: 'Carbon Reduction', desc: 'Lower embodied carbon compared to traditional clay masonry.' },
+              { value: 50, suffix: '+', label: 'Year Lifespan', desc: 'Engineered for extreme durability and structural longevity.' }
             ].map((stat, i) => (
-              <motion.div 
+              <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -146,7 +166,9 @@ const HomePage = () => {
                 transition={{ duration: 0.6, delay: i * 0.2 }}
                 className="text-center border border-cream/20 p-12 bg-charcoal/20 backdrop-blur-sm"
               >
-                <div className="text-6xl md:text-7xl font-serif text-sand mb-6">{stat.metric}</div>
+                <div className="text-6xl md:text-7xl font-serif text-sand mb-6">
+                  <Counter value={stat.value} suffix={stat.suffix} duration={2} delay={i * 0.2} />
+                </div>
                 <h3 className="text-xl mb-4 font-sans uppercase tracking-widest text-sm">{stat.label}</h3>
                 <p className="font-sans font-light text-cream/60 text-sm leading-relaxed">{stat.desc}</p>
               </motion.div>
@@ -192,7 +214,7 @@ const HomePage = () => {
                 </motion.div>
               </div>
             </div>
-            
+
             <div className="relative h-full min-h-[400px] geometric-frame bg-cream/50 backdrop-blur-sm p-8 flex flex-col justify-center">
               <div className="absolute inset-0 blueprint-grid opacity-20"></div>
               <div className="relative z-10 text-center">
@@ -215,26 +237,19 @@ const HomePage = () => {
         <div className="bg-faded-text">
           <span>PORTFOLIO</span>
         </div>
-        
+
         <div className="container-custom relative z-10">
           <div className="flex flex-col md:flex-row justify-between items-end mb-16">
             <div className="max-w-2xl">
               <div className="font-sans text-xs tracking-widest uppercase text-clay mb-4">Selected Case Studies</div>
               <h2 className="text-4xl md:text-5xl text-charcoal font-serif">Featured Projects</h2>
             </div>
-            <div className="flex gap-4 mt-8 md:mt-0">
-              <button className="flex items-center justify-center w-12 h-12 border border-charcoal/20 rounded-full hover:bg-charcoal hover:text-cream transition-colors">
-                <ArrowLeft className="w-5 h-5" />
-              </button>
-              <button className="flex items-center justify-center w-12 h-12 border border-charcoal/20 rounded-full hover:bg-charcoal hover:text-cream transition-colors">
-                <ArrowRight className="w-5 h-5" />
-              </button>
-            </div>
+
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             {projects.map((project, index) => (
-              <motion.div 
+              <motion.div
                 key={project.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
@@ -242,24 +257,24 @@ const HomePage = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="group"
               >
-                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-4 h-full flex flex-col">
-                  <div className="relative aspect-[4/5] overflow-hidden mb-8 bg-charcoal">
-                    <img 
-                      src={project.image} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110"
+                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-4">
+                  <div className="relative overflow-hidden mb-8 bg-charcoal">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-auto opacity-90 transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  
-                  <div className="flex flex-col flex-grow">
+
+                  <div className="flex flex-col">
                     <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-clay mb-3">Project 0{project.id}</div>
                     <h3 className="text-2xl mb-4 text-charcoal leading-tight">{project.title}</h3>
-                    <p className="font-sans font-light text-charcoal/70 text-sm leading-relaxed mb-8 flex-grow">
+                    <p className="font-sans font-light text-charcoal/70 text-sm leading-relaxed mb-8">
                       {project.description}
                     </p>
-                    
-                    <Link to="/services" className="inline-flex items-center text-xs tracking-widest uppercase text-charcoal font-medium hover:text-clay transition-colors mt-auto">
+
+                    <Link to="/services" className="inline-flex items-center text-xs tracking-widest uppercase text-charcoal font-medium hover:text-clay transition-colors">
                       Case Study <ArrowUpRight className="ml-2 w-3.5 h-3.5" />
                     </Link>
                   </div>

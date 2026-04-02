@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
-import { motion } from 'framer-motion';
-import { ArrowRight, Download, Star } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowRight, Download, Star, ArrowLeft } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
 const ProductsPage = () => {
@@ -94,32 +94,58 @@ const ProductsPage = () => {
     }
   ];
 
-  const testimonials = [
+  const testimonialsData = [
     {
       id: 1,
-      name: 'Sarah Jenkins',
-      role: 'Lead Architect, Studio Green',
-      text: 'Ecobricks completely transformed our approach to sustainable design. The structural integrity of the Insulated Core Block allowed us to achieve net-zero without compromising our aesthetic vision.'
+      name: 'Ammara',
+      role: 'Marketing Manager, Agile NextPak Solutions',
+      text: 'My worktable just got a green upgrade! These eco-friendly pots from EcoBricks are not just stylish but also super sustainable.'
     },
     {
       id: 2,
-      name: 'Marcus Chen',
-      role: 'Director of Construction, BuildCorp',
-      text: 'The interlocking structural blocks accelerated our commercial project timeline by nearly 25%. The precision engineering means less waste on-site and a cleaner, faster build.'
+      name: 'Hina Shahrukh',
+      role: 'Managing Partner, Hina Shahrukh & Co. Pvt Ltd.',
+      text: 'A special thanks to Kashaf Akhtar for designing these wonderful giveaways that perfectly align with our values and vision.'
     },
     {
       id: 3,
-      name: 'Elena Rodriguez',
-      role: 'Sustainability Consultant',
-      text: 'When conducting lifecycle analyses for our clients, Ecobricks consistently outperforms traditional masonry. The 65% carbon reduction metric is real and verifiable.'
+      name: 'Jane Marriott, CMG OBE',
+      role: 'UK High Commissioner',
+      text: "It's a green product so I absolutely love it."
     },
     {
       id: 4,
-      name: 'David Thompson',
-      role: 'Principal Engineer, Apex Structures',
-      text: 'I was initially skeptical of waste-derived materials for load-bearing applications. After rigorous testing of the Heavy-Duty Industrial Block, I am thoroughly convinced. Exceptional compression strength.'
+      name: 'Deepa Lama',
+      role: 'Program Assistant, FAO, Nepal',
+      text: 'Sustainable yet beautiful looking product'
+    },
+    {
+      id: 5,
+      name: 'Haider Jalal',
+      role: 'Automation Engineer, CodeHuddle',
+      text: "I'm loving this EcoPot made from recycled plastic courtesy of Kashaf Akhtar and the team at EcoBricks. Transforming waste into functional art is truly inspiring!"
     }
   ];
+
+  const duplicatedTestimonials = [...testimonialsData, ...testimonialsData, ...testimonialsData];
+  const [testimonialIndex, setTestimonialIndex] = useState(5); // Start at the middle set
+
+  const nextTestimonial = () => {
+    setTestimonialIndex((prev) => prev + 1);
+  };
+
+  const prevTestimonial = () => {
+    setTestimonialIndex((prev) => prev - 1);
+  };
+
+  // Logic for wraparound jump
+  useEffect(() => {
+    if (testimonialIndex >= testimonialsData.length * 2) {
+      setTimeout(() => setTestimonialIndex(testimonialIndex - testimonialsData.length), 500);
+    } else if (testimonialIndex < testimonialsData.length) {
+      setTimeout(() => setTestimonialIndex(testimonialIndex + testimonialsData.length), 500);
+    }
+  }, [testimonialIndex]);
 
 
 
@@ -189,7 +215,7 @@ const ProductsPage = () => {
                         <img 
                           src={product.image} 
                           alt={product.name} 
-                          className="h-[300px] md:h-[400px] lg:h-[450px] w-auto max-w-full object-contain opacity-90 mix-blend-luminosity hover:mix-blend-normal transition-all duration-1000"
+                          className="h-[300px] md:h-[400px] lg:h-[450px] w-auto max-w-full object-contain opacity-90 transition-all duration-1000"
                         />
                         <div className="absolute top-4 left-4 bg-cream text-charcoal font-sans text-[10px] tracking-widest uppercase px-3 py-1 z-10">
                           {product.category}
@@ -230,40 +256,60 @@ const ProductsPage = () => {
       </section>
 
       {/* Testimonials Section */}
-      <section className="section-padding bg-sand relative overflow-hidden">
+      <section className="pt-8 pb-20 bg-sand relative overflow-hidden">
         <div className="absolute inset-0 bg-noise opacity-30"></div>
         <div className="absolute inset-0 blueprint-grid opacity-10"></div>
         
         <div className="container-custom relative z-10">
-          <div className="text-center mb-20">
-            <h2 className="text-4xl md:text-5xl mb-4 text-charcoal">What Our Partners Say</h2>
-            <p className="font-sans font-light text-charcoal/70">Trusted by leading architects and engineers worldwide.</p>
+          <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+            <div className="text-center md:text-left flex-1">
+              <h2 className="text-4xl md:text-5xl mb-4 text-charcoal">What Our Partners Say</h2>
+              <p className="font-sans font-light text-charcoal/70">Trusted by leading architects and engineers worldwide.</p>
+            </div>
+            <div className="flex gap-4 mt-8 md:mt-0">
+              <button 
+                onClick={prevTestimonial}
+                className="flex items-center justify-center w-12 h-12 border border-charcoal/20 rounded-full hover:bg-charcoal hover:text-white transition-colors"
+              >
+                <ArrowLeft className="w-5 h-5" />
+              </button>
+              <button 
+                onClick={nextTestimonial}
+                className="flex items-center justify-center w-12 h-12 border border-charcoal/20 rounded-full hover:bg-charcoal hover:text-white transition-colors"
+              >
+                <ArrowRight className="w-5 h-5" />
+              </button>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <motion.div 
-                key={testimonial.id}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="geometric-frame bg-cream/80 backdrop-blur-sm p-8 md:p-12"
-              >
-                <div className="flex mb-6">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 text-clay fill-current mr-1" />
-                  ))}
+          <div className="relative overflow-hidden">
+            <motion.div 
+              animate={{ x: `-${testimonialIndex * (100 / (typeof window !== 'undefined' && window.innerWidth < 768 ? 1 : 3))}%` }}
+              transition={{ type: "spring", stiffness: 100, damping: 20 }}
+              className="flex gap-0"
+            >
+              {duplicatedTestimonials.map((testimonial, index) => (
+                <div 
+                  key={`${testimonial.id}-${index}`}
+                  className="px-2 shrink-0 w-full md:w-1/3"
+                >
+                  <div className="geometric-frame bg-cream/80 backdrop-blur-sm p-4 md:p-5 h-full">
+                    <div className="flex mb-4">
+                      {[...Array(5)].map((_, i) => (
+                        <Star key={i} className="w-3.5 h-3.5 text-clay fill-current mr-1" />
+                      ))}
+                    </div>
+                    <p className="font-serif text-sm md:text-base text-charcoal leading-relaxed mb-4 italic">
+                      "{testimonial.text}"
+                    </p>
+                    <div className="border-t border-charcoal/10 pt-3">
+                      <div className="font-sans font-medium text-xs text-charcoal">{testimonial.name}</div>
+                      <div className="font-sans text-[10px] tracking-widest uppercase text-charcoal/50 mt-1">{testimonial.role}</div>
+                    </div>
+                  </div>
                 </div>
-                <p className="font-serif text-xl md:text-2xl text-charcoal leading-relaxed mb-8 italic">
-                  "{testimonial.text}"
-                </p>
-                <div className="border-t border-charcoal/10 pt-6">
-                  <div className="font-sans font-medium text-charcoal">{testimonial.name}</div>
-                  <div className="font-sans text-xs tracking-widest uppercase text-charcoal/50 mt-1">{testimonial.role}</div>
-                </div>
-              </motion.div>
-            ))}
+              ))}
+            </motion.div>
           </div>
         </div>
       </section>
