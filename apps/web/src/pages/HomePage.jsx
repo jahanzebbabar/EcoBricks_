@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Link } from 'react-router-dom';
 import { motion, useInView, animate } from 'framer-motion';
-import { ArrowRight, ArrowUpRight, ArrowLeft } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, ArrowLeft, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Counter = ({ value, suffix = "", duration = 2, delay = 0 }) => {
   const [count, setCount] = useState(0);
@@ -24,7 +24,99 @@ const Counter = ({ value, suffix = "", duration = 2, delay = 0 }) => {
   return <span ref={ref}>{count}{suffix}</span>;
 };
 
+const slides = [
+  { id: 1, src: null, label: 'Image 01' },
+  { id: 2, src: null, label: 'Image 02' },
+  { id: 3, src: null, label: 'Image 03' },
+  { id: 4, src: null, label: 'Image 04' },
+];
+
+const ImageSlider = () => {
+  const [current, setCurrent] = useState(0);
+  const timerRef = useRef(null);
+
+  const startTimer = () => {
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent(prev => (prev + 1) % slides.length);
+    }, 3500);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => clearInterval(timerRef.current);
+  }, []);
+
+  const goTo = (idx) => {
+    setCurrent(idx);
+    startTimer();
+  };
+
+  const prev = () => goTo((current - 1 + slides.length) % slides.length);
+  const next = () => goTo((current + 1) % slides.length);
+
+  return (
+    <div className="relative h-full min-h-[400px] overflow-hidden border border-charcoal/20 bg-charcoal/5 group">
+      {/* Slides */}
+      {slides.map((slide, i) => (
+        <div
+          key={slide.id}
+          className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
+        >
+          {slide.src ? (
+            <img src={slide.src} alt={slide.label} className="w-full h-full object-cover" />
+          ) : (
+            <div className="w-full h-full flex flex-col items-center justify-center bg-charcoal/5">
+              <div className="absolute inset-0 blueprint-grid opacity-20"></div>
+              <div className="relative z-10 text-center">
+                <div className="w-16 h-16 border border-charcoal/20 flex items-center justify-center mx-auto mb-4">
+                  <div className="w-6 h-6 border-2 border-charcoal/25 rounded-sm"></div>
+                </div>
+                <p className="font-sans text-xs tracking-widest uppercase text-charcoal/30">{slide.label}</p>
+              </div>
+            </div>
+          )}
+        </div>
+      ))}
+
+      {/* Arrows */}
+      <button
+        onClick={prev}
+        className="absolute left-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center bg-cream/80 hover:bg-cream border border-charcoal/10 transition-all opacity-0 group-hover:opacity-100"
+        aria-label="Previous"
+      >
+        <ChevronLeft className="w-4 h-4 text-charcoal" />
+      </button>
+      <button
+        onClick={next}
+        className="absolute right-3 top-1/2 -translate-y-1/2 z-20 w-9 h-9 flex items-center justify-center bg-cream/80 hover:bg-cream border border-charcoal/10 transition-all opacity-0 group-hover:opacity-100"
+        aria-label="Next"
+      >
+        <ChevronRight className="w-4 h-4 text-charcoal" />
+      </button>
+
+      {/* Dots */}
+      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex items-center gap-2">
+        {slides.map((_, i) => (
+          <button
+            key={i}
+            onClick={() => goTo(i)}
+            className={`transition-all duration-300 rounded-full ${i === current ? 'w-6 h-1.5 bg-charcoal' : 'w-1.5 h-1.5 bg-charcoal/30 hover:bg-charcoal/60'}`}
+            aria-label={`Go to slide ${i + 1}`}
+          />
+        ))}
+      </div>
+
+      {/* Slide counter */}
+      <div className="absolute top-4 right-4 z-20 font-sans text-[10px] tracking-widest uppercase text-charcoal/40">
+        {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
+      </div>
+    </div>
+  );
+};
+
 const HomePage = () => {
+
   const projects = [
     {
       id: 1,
@@ -58,8 +150,8 @@ const HomePage = () => {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1558052643-9a9e9ea8e50a?w=1920&q=80"
-            alt="Sustainable green building construction"
+            src="/images/ecobricks-hero.png"
+            alt="Sustainable building constructed with ecobricks"
             className="w-full h-full object-cover opacity-50 mix-blend-luminosity"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/60 to-charcoal/20"></div>
@@ -128,9 +220,17 @@ const HomePage = () => {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="lg:col-span-6 lg:col-start-7"
             >
-              <p className="font-sans font-light text-charcoal/80 text-lg md:text-xl leading-relaxed mb-8">
-                Ecobricks exists to solve the construction industry's dual crisis: resource depletion and carbon emissions. We engineer high-performance structural materials, creating a closed-loop system that builds the future without destroying the present.
-              </p>
+
+              {/* 16:9 Image Placeholder — replace src below with your image */}
+              <div className="relative w-full mb-8 overflow-hidden border border-charcoal/15 bg-charcoal/5" style={{ aspectRatio: '16/9' }}>
+                <div className="absolute inset-0 blueprint-grid opacity-10"></div>
+                <div className="absolute inset-0 flex flex-col items-center justify-center">
+                  <div className="w-12 h-12 border border-charcoal/20 flex items-center justify-center mb-3">
+                    <div className="w-5 h-5 border-2 border-charcoal/20 rounded-sm"></div>
+                  </div>
+                  <p className="font-sans text-[10px] tracking-widest uppercase text-charcoal/25">Image Placeholder — 16:9</p>
+                </div>
+              </div>
               <Link to="/about" className="inline-flex items-center font-sans text-sm tracking-widest uppercase hover:text-clay transition-colors border-b border-charcoal pb-1">
                 Read Our Story <ArrowUpRight className="ml-2 w-4 h-4" />
               </Link>
@@ -215,18 +315,7 @@ const HomePage = () => {
               </div>
             </div>
 
-            <div className="relative h-full min-h-[400px] geometric-frame bg-cream/50 backdrop-blur-sm p-8 flex flex-col justify-center">
-              <div className="absolute inset-0 blueprint-grid opacity-20"></div>
-              <div className="relative z-10 text-center">
-                <div className="font-serif text-4xl md:text-5xl mb-6 text-forest">Ready to build?</div>
-                <p className="font-sans font-light text-charcoal/70 mb-10 max-w-md mx-auto">
-                  Consult with our engineering team to integrate sustainable materials into your next architectural endeavor.
-                </p>
-                <Link to="/services" className="btn-architectural bg-charcoal text-cream hover:bg-forest hover:text-cream border-none">
-                  Request Consultation
-                </Link>
-              </div>
-            </div>
+            <ImageSlider />
           </div>
         </div>
       </section>
@@ -247,7 +336,7 @@ const HomePage = () => {
 
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
@@ -255,26 +344,28 @@ const HomePage = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group"
+                className="group h-full"
               >
-                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-4">
-                  <div className="relative overflow-hidden mb-8 bg-charcoal">
+                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-4 h-full flex flex-col">
+                  {/* Fixed Aspect Ratio for Images */}
+                  <div className="relative overflow-hidden mb-8 bg-charcoal aspect-[4/3] shrink-0">
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-auto opacity-90 transition-transform duration-1000 group-hover:scale-110"
+                      className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
 
-                  <div className="flex flex-col">
+                  <div className="flex flex-col flex-grow">
                     <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-clay mb-3">Project 0{project.id}</div>
                     <h3 className="text-2xl mb-4 text-charcoal leading-tight">{project.title}</h3>
-                    <p className="font-sans font-light text-charcoal/70 text-sm leading-relaxed mb-8">
+                    {/* Improved Text Legibility */}
+                    <p className="font-sans text-charcoal/80 text-sm leading-relaxed mb-8 flex-grow">
                       {project.description}
                     </p>
 
-                    <Link to="/services" className="inline-flex items-center text-xs tracking-widest uppercase text-charcoal font-medium hover:text-clay transition-colors">
+                    <Link to="/services" className="inline-flex items-center text-xs tracking-widest uppercase text-charcoal font-semibold hover:text-clay transition-colors mt-auto pt-4 border-t border-charcoal/10">
                       Case Study <ArrowUpRight className="ml-2 w-3.5 h-3.5" />
                     </Link>
                   </div>
