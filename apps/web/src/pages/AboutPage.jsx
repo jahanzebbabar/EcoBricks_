@@ -35,7 +35,7 @@ const AboutPage = () => {
             className="max-w-4xl"
           >
             <h1 className="text-5xl md:text-7xl mb-8">Redefining the Built Environment</h1>
-            <p className="font-sans font-light text-charcoal/90 text-xl md:text-2xl leading-relaxed">
+            <p className="font-sans font-normal text-charcoal/90 text-xl md:text-2xl leading-relaxed">
               Engineering architectural solutions that respect our planetary boundaries.
             </p>
           </motion.div>
@@ -86,7 +86,7 @@ const AboutPage = () => {
                   <div className="absolute left-[-4px] top-1 w-[7px] h-[7px] bg-charcoal"></div>
                   <div className="font-serif text-2xl text-clay mb-2">{item.year}</div>
                   <div className="font-sans font-medium text-charcoal mb-1">{item.title}</div>
-                  <div className="font-sans font-light text-sm text-charcoal/85">{item.desc}</div>
+                  <div className="font-sans font-normal text-lg text-charcoal/85">{item.desc}</div>
                 </motion.div>
               ))}
             </div>
@@ -98,15 +98,15 @@ const AboutPage = () => {
             <div className="space-y-12">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-2xl mb-3">Structural Integrity First</h4>
-                <p className="font-sans font-light text-charcoal/90 leading-relaxed">Engineered for extreme durability, meeting all international building codes for load-bearing applications.</p>
+                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">Engineered for extreme durability, meeting all international building codes for load-bearing applications.</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-2xl mb-3">Radical Transparency</h4>
-                <p className="font-sans font-light text-charcoal/90 leading-relaxed">Complete lifecycle analysis data allows architects to make informed, sustainable design decisions.</p>
+                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">Complete lifecycle analysis data allows architects to make informed, sustainable design decisions.</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
                 <h4 className="text-2xl mb-3">Circular Manufacturing</h4>
-                <p className="font-sans font-light text-charcoal/90 leading-relaxed">Closed-loop facilities with recycled water, renewable energy, and raw materials diverted from waste.</p>
+                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">Closed-loop facilities with recycled water, renewable energy, and raw materials diverted from waste.</p>
               </motion.div>
             </div>
           </div>
@@ -142,7 +142,7 @@ const AboutPage = () => {
                   <div className="absolute inset-0 border border-charcoal/10 m-4 pointer-events-none"></div>
                 </div>
                 <h4 className="text-2xl mb-1">{leader.name}</h4>
-                <p className="font-sans text-sm tracking-widest uppercase text-charcoal/80">{leader.role}</p>
+                <p className="font-sans text-base tracking-widest uppercase text-charcoal/80">{leader.role}</p>
               </motion.div>
             ))}
           </div>

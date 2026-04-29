@@ -66,7 +66,7 @@ const ServicesPage = () => {
               <p className="font-sans font-light text-charcoal/85 leading-relaxed mb-4 text-lg">
                 A hands-on team experience built around sustainability.
               </p>
-              <p className="font-sans font-light text-charcoal/75 leading-relaxed text-sm">
+              <p className="font-sans font-normal text-charcoal/75 leading-relaxed text-lg">
                 Bring your team together through guided ecobrick-making workshops. Collect plastic waste, compact it into bricks, and create something lasting — a tangible symbol of your organization's commitment to the environment.
               </p>
             </motion.div>
@@ -139,7 +139,7 @@ const ServicesPage = () => {
               <p className="font-sans font-light text-charcoal/85 leading-relaxed mb-4 text-lg">
                 Turning your plastic problem into a resource.
               </p>
-              <p className="font-sans font-light text-charcoal/75 leading-relaxed text-sm">
+              <p className="font-sans font-normal text-charcoal/75 leading-relaxed text-lg">
                 We assess your organization's plastic waste streams, develop a structured collection plan, and convert that waste into high-quality ecobricks for use in real construction projects. A complete, closed-loop solution.
               </p>
             </motion.div>
@@ -172,7 +172,7 @@ const ServicesPage = () => {
             className="max-w-2xl mx-auto text-center"
           >
             <h2 className="text-4xl md:text-5xl mb-6">Interested?</h2>
-            <p className="font-sans font-light text-cream/90 mb-10 text-lg">
+            <p className="font-sans font-normal text-cream/90 mb-10 text-lg">
               Get in touch and we'll find the right service for you.
             </p>
             <a

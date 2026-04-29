@@ -229,7 +229,7 @@ const HomePage = () => {
                   onError={(e) => { e.currentTarget.src = "/images/hero-cover.png"; e.currentTarget.onerror = null; }}
                 />
               </div>
-              <Link to="/about" className="inline-flex items-center font-sans text-sm tracking-widest uppercase hover:text-clay transition-colors border-b border-charcoal pb-1">
+              <Link to="/about" className="inline-flex items-center font-sans text-base tracking-widest uppercase hover:text-clay transition-colors border-b border-charcoal pb-1">
                 Read Our Story <ArrowUpRight className="ml-2 w-4 h-4" />
               </Link>
             </motion.div>
@@ -245,7 +245,7 @@ const HomePage = () => {
         <div className="container-custom section-padding relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl mb-6">Measurable Impact</h2>
-            <p className="font-sans font-light text-cream/90 max-w-2xl mx-auto">
+            <p className="font-sans font-normal text-cream/90 text-lg max-w-2xl mx-auto">
               Our proprietary manufacturing process delivers uncompromising structural integrity while radically reducing environmental footprint.
             </p>
           </div>
@@ -267,8 +267,8 @@ const HomePage = () => {
                 <div className="text-6xl md:text-7xl font-serif text-sand mb-6">
                   <Counter value={stat.value} suffix={stat.suffix} duration={2} delay={i * 0.2} />
                 </div>
-                <h3 className="text-xl mb-4 font-sans uppercase tracking-widest text-sm">{stat.label}</h3>
-                <p className="font-sans font-light text-cream/80 text-sm leading-relaxed">{stat.desc}</p>
+                <h3 className="text-xl mb-4 font-sans uppercase tracking-widest">{stat.label}</h3>
+                <p className="font-sans font-normal text-cream/80 text-lg leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -288,7 +288,7 @@ const HomePage = () => {
                     <div className="w-8 h-[1px] bg-charcoal mr-4"></div>
                     <h3 className="text-2xl">Structural Superiority</h3>
                   </div>
-                  <p className="font-sans font-light text-charcoal/80 leading-relaxed pl-12">
+                  <p className="font-sans font-normal text-charcoal/80 text-lg leading-relaxed pl-12">
                     Our geopolymer binders create a dense, highly cross-linked matrix that outperforms traditional Portland cement in compression strength and chemical resistance.
                   </p>
                 </motion.div>
@@ -297,7 +297,7 @@ const HomePage = () => {
                     <div className="w-8 h-[1px] bg-charcoal mr-4"></div>
                     <h3 className="text-2xl">Architectural Flexibility</h3>
                   </div>
-                  <p className="font-sans font-light text-charcoal/80 leading-relaxed pl-12">
+                  <p className="font-sans font-normal text-charcoal/80 text-lg leading-relaxed pl-12">
                     Available in custom dimensions, textures, and finishes. We provide architects the freedom to design without constraints while meeting strict LEED certification standards.
                   </p>
                 </motion.div>
@@ -306,7 +306,7 @@ const HomePage = () => {
                     <div className="w-8 h-[1px] bg-charcoal mr-4"></div>
                     <h3 className="text-2xl">Scalable Supply Chain</h3>
                   </div>
-                  <p className="font-sans font-light text-charcoal/80 leading-relaxed pl-12">
+                  <p className="font-sans font-normal text-charcoal/80 text-lg leading-relaxed pl-12">
                     With localized manufacturing hubs, we ensure precision-timed delivery networks that keep your construction schedule on track while minimizing transport emissions.
                   </p>
                 </motion.div>
@@ -359,7 +359,7 @@ const HomePage = () => {
                     <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-clay mb-3">Project 0{project.id}</div>
                     <h3 className="text-2xl mb-4 text-charcoal leading-tight">{project.title}</h3>
                     {/* Improved Text Legibility */}
-                    <p className="font-sans text-charcoal/90 text-sm leading-relaxed mb-8 flex-grow">
+                    <p className="font-sans text-charcoal/90 text-base leading-relaxed mb-8 flex-grow">
                       {project.description}
                     </p>
 

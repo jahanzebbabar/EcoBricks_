@@ -42,7 +42,7 @@ const EcorePage = () => {
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif leading-[0.9] mb-8 tracking-tighter">
               EcoCore™<br/>Composite.
             </h1>
-            <p className="font-sans font-light text-cream/90 text-xl md:text-2xl max-w-2xl leading-relaxed">
+            <p className="font-sans font-normal text-cream/90 text-xl md:text-2xl max-w-2xl leading-relaxed">
               A paradigm shift. 65% lower embodied carbon, superior thermal mass, and uncompromising capacity.
             </p>
           </motion.div>
@@ -66,24 +66,24 @@ const EcorePage = () => {
               <div className="space-y-10">
                 <div className="relative pl-8 border-l border-cream/20">
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-sand"></div>
-                  <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-sand text-sm">01. Recycled Mineral Aggregates</h3>
-                  <p className="font-sans font-light text-cream/80 leading-relaxed">
+                  <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-sand">01. Recycled Mineral Aggregates</h3>
+                  <p className="font-sans font-normal text-cream/80 text-lg leading-relaxed">
                     Mineral waste forms the foundation, reducing landfills while maintaining superior structural strength.
                   </p>
                 </div>
                 
                 <div className="relative pl-8 border-l border-cream/20">
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-cream"></div>
-                  <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-cream text-sm">02. Geopolymer Binders</h3>
-                  <p className="font-sans font-light text-cream/80 leading-relaxed">
+                  <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-cream">02. Geopolymer Binders</h3>
+                  <p className="font-sans font-normal text-cream/80 text-lg leading-relaxed">
                     Replacing traditional cement to create a dense matrix with exceptional chemical resistance.
                   </p>
                 </div>
                 
                 <div className="relative pl-8 border-l border-cream/20">
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-clay"></div>
-                  <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-clay text-sm">03. Micro-Fiber Stabilizers</h3>
-                  <p className="font-sans font-light text-cream/80 leading-relaxed">
+                  <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-clay">03. Micro-Fiber Stabilizers</h3>
+                  <p className="font-sans font-normal text-cream/80 text-lg leading-relaxed">
                     Polymer reinforcement improves tensile strength, crack resistance, and impact tolerance.
                   </p>
                 </div>

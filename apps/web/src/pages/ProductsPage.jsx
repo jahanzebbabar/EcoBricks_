@@ -176,7 +176,7 @@ const ProductsPage = () => {
             className="max-w-3xl"
           >
             <h1 className="text-5xl md:text-7xl mb-6">Sustainable Product Catalog</h1>
-            <p className="font-sans font-light text-charcoal/90 text-lg md:text-xl leading-relaxed mb-10">
+            <p className="font-sans font-normal text-charcoal/90 text-lg md:text-xl leading-relaxed mb-10">
               Discover our range of eco-friendly, durable, and stylish products crafted from 100% recycled plastics and minerals. Designed to meet the rigorous demands of modern sustainable living.
             </p>
             <a 
@@ -234,13 +234,13 @@ const ProductsPage = () => {
                   >
                     <div className="font-sans text-xs tracking-widest uppercase text-clay mb-4">Product No. 0{product.id}</div>
                     <h2 className="text-4xl mb-6">{product.name}</h2>
-                    <p className="font-sans font-light text-charcoal/85 leading-relaxed mb-10">
+                    <p className="font-sans font-normal text-charcoal/85 text-lg leading-relaxed mb-10">
                       {product.description}
                     </p>
 
                     <div className="space-y-0 border-t border-charcoal/20">
                       {Object.entries(product.specs).map(([key, value]) => (
-                        <div key={key} className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-6 py-4 border-b border-charcoal/10 font-sans text-sm">
+                        <div key={key} className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-6 py-4 border-b border-charcoal/10 font-sans text-base">
                           <span className="text-charcoal/70 uppercase tracking-wider text-xs whitespace-nowrap">{key}</span>
                           <span className="font-medium text-charcoal">{value}</span>
                         </div>
