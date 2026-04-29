@@ -25,7 +25,7 @@ const ServicesPage = () => {
           >
             <div className="font-sans text-xs tracking-widest uppercase text-clay mb-6">What We Offer</div>
             <h1 className="text-5xl md:text-7xl mb-6 leading-tight">Our Services</h1>
-            <p className="font-sans font-light text-charcoal/60 text-lg max-w-xl leading-relaxed">
+            <p className="font-sans font-light text-charcoal/80 text-lg max-w-xl leading-relaxed">
               Two core offerings designed to make sustainability practical, engaging, and impactful.
             </p>
           </motion.div>
@@ -36,16 +36,15 @@ const ServicesPage = () => {
       <section className="border-b border-charcoal/10">
         <div className="flex flex-col md:flex-row min-h-[520px]">
 
-          {/* Image Placeholder — Left */}
+          {/* Image 1 — Left */}
           <div className="w-full md:w-1/2 min-h-[300px] md:min-h-0 bg-charcoal/5 border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden group">
-            {/* User will add image here — placeholder shown below */}
-            <div className="absolute inset-0 blueprint-grid opacity-10"></div>
-            <div className="relative z-10 text-center px-8">
-              <div className="w-16 h-16 border border-charcoal/20 flex items-center justify-center mx-auto mb-4">
-                <div className="w-6 h-6 border-2 border-charcoal/30 rounded-sm"></div>
-              </div>
-              <p className="font-sans text-xs tracking-widest uppercase text-charcoal/30">Image Placeholder</p>
-            </div>
+            <img 
+              src="/images/activity1.jpg" 
+              onError={(e) => { e.currentTarget.src = "/images/activity1.png"; e.currentTarget.onerror = null; }}
+              alt="Corporate Engagement Activity" 
+              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
           </div>
 
           {/* Text — Right */}
@@ -57,36 +56,51 @@ const ServicesPage = () => {
               transition={{ duration: 0.8 }}
               className="max-w-lg"
             >
-              <div className="font-sans text-xs tracking-widest uppercase text-charcoal/40 mb-8 flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-charcoal/30 inline-block"></span>
+              <div className="font-sans text-xs tracking-widest uppercase text-charcoal/65 mb-8 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-charcoal/40 inline-block"></span>
                 Service 01
               </div>
               <h2 className="text-4xl md:text-5xl mb-6 text-charcoal leading-tight">
                 Corporate Engagement Activity
               </h2>
-              <p className="font-sans font-light text-charcoal/65 leading-relaxed mb-4 text-lg">
+              <p className="font-sans font-light text-charcoal/85 leading-relaxed mb-4 text-lg">
                 A hands-on team experience built around sustainability.
               </p>
-              <p className="font-sans font-light text-charcoal/50 leading-relaxed text-sm">
+              <p className="font-sans font-light text-charcoal/75 leading-relaxed text-sm">
                 Bring your team together through guided ecobrick-making workshops. Collect plastic waste, compact it into bricks, and create something lasting — a tangible symbol of your organization's commitment to the environment.
               </p>
             </motion.div>
           </div>
         </div>
 
-        {/* Second image row for Service 01 — optional extra photo */}
+        {/* Second image row for Service 01 — activity2, activity3, activity4 */}
         <div className="flex flex-col md:flex-row min-h-[300px] border-t border-charcoal/10">
-          <div className="w-full md:w-1/3 min-h-[200px] bg-sand/40 border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/25 z-10">Image Placeholder</p>
+          <div className="w-full md:w-1/3 min-h-[200px] bg-sand/40 border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden group">
+            <img 
+              src="/images/activity2.jpg" 
+              onError={(e) => { e.currentTarget.src = "/images/activity2.png"; e.currentTarget.onerror = null; }}
+              alt="Hands-on ecobrick making" 
+              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
           </div>
-          <div className="w-full md:w-1/3 min-h-[200px] bg-cream border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/25 z-10">Image Placeholder</p>
+          <div className="w-full md:w-1/3 min-h-[200px] bg-cream border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden group">
+            <img 
+              src="/images/activity3.jpg" 
+              onError={(e) => { e.currentTarget.src = "/images/activity3.png"; e.currentTarget.onerror = null; }}
+              alt="Team collaboration" 
+              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
           </div>
-          <div className="w-full md:w-1/3 min-h-[200px] bg-sand/20 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/25 z-10">Image Placeholder</p>
+          <div className="w-full md:w-1/3 min-h-[200px] bg-sand/20 flex items-center justify-center relative overflow-hidden group">
+            <img 
+              src="/images/activity4.jpg" 
+              onError={(e) => { e.currentTarget.src = "/images/activity4.png"; e.currentTarget.onerror = null; }}
+              alt="Sustainable corporate building" 
+              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
           </div>
         </div>
       </section>
@@ -102,7 +116,7 @@ const ServicesPage = () => {
               <div className="w-16 h-16 border border-charcoal/20 flex items-center justify-center mx-auto mb-4">
                 <div className="w-6 h-6 border-2 border-charcoal/30 rounded-sm"></div>
               </div>
-              <p className="font-sans text-xs tracking-widest uppercase text-charcoal/30">Image Placeholder</p>
+              <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60">Image Placeholder</p>
             </div>
           </div>
 
@@ -115,17 +129,17 @@ const ServicesPage = () => {
               transition={{ duration: 0.8 }}
               className="max-w-lg"
             >
-              <div className="font-sans text-xs tracking-widest uppercase text-charcoal/40 mb-8 flex items-center gap-4">
-                <span className="w-8 h-[1px] bg-charcoal/30 inline-block"></span>
+              <div className="font-sans text-xs tracking-widest uppercase text-charcoal/65 mb-8 flex items-center gap-4">
+                <span className="w-8 h-[1px] bg-charcoal/40 inline-block"></span>
                 Service 02
               </div>
               <h2 className="text-4xl md:text-5xl mb-6 text-charcoal leading-tight">
                 Waste Consultation & Recycling
               </h2>
-              <p className="font-sans font-light text-charcoal/65 leading-relaxed mb-4 text-lg">
+              <p className="font-sans font-light text-charcoal/85 leading-relaxed mb-4 text-lg">
                 Turning your plastic problem into a resource.
               </p>
-              <p className="font-sans font-light text-charcoal/50 leading-relaxed text-sm">
+              <p className="font-sans font-light text-charcoal/75 leading-relaxed text-sm">
                 We assess your organization's plastic waste streams, develop a structured collection plan, and convert that waste into high-quality ecobricks for use in real construction projects. A complete, closed-loop solution.
               </p>
             </motion.div>
@@ -136,11 +150,11 @@ const ServicesPage = () => {
         <div className="flex flex-col md:flex-row min-h-[300px] border-t border-charcoal/10">
           <div className="w-full md:w-1/2 min-h-[200px] bg-cream/60 border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/25 z-10">Image Placeholder</p>
+            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60 z-10">Image Placeholder</p>
           </div>
           <div className="w-full md:w-1/2 min-h-[200px] bg-sand/30 flex items-center justify-center relative overflow-hidden">
             <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/25 z-10">Image Placeholder</p>
+            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60 z-10">Image Placeholder</p>
           </div>
         </div>
       </section>
@@ -158,7 +172,7 @@ const ServicesPage = () => {
             className="max-w-2xl mx-auto text-center"
           >
             <h2 className="text-4xl md:text-5xl mb-6">Interested?</h2>
-            <p className="font-sans font-light text-cream/70 mb-10 text-lg">
+            <p className="font-sans font-light text-cream/90 mb-10 text-lg">
               Get in touch and we'll find the right service for you.
             </p>
             <a

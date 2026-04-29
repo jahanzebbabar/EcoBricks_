@@ -42,7 +42,7 @@ const EcorePage = () => {
             <h1 className="text-6xl md:text-8xl lg:text-9xl font-serif leading-[0.9] mb-8 tracking-tighter">
               EcoCore™<br/>Composite.
             </h1>
-            <p className="font-sans font-light text-cream/70 text-xl md:text-2xl max-w-2xl leading-relaxed">
+            <p className="font-sans font-light text-cream/90 text-xl md:text-2xl max-w-2xl leading-relaxed">
               A paradigm shift. 65% lower embodied carbon, superior thermal mass, and uncompromising capacity.
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ const EcorePage = () => {
                 <div className="relative pl-8 border-l border-cream/20">
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-sand"></div>
                   <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-sand text-sm">01. Recycled Mineral Aggregates</h3>
-                  <p className="font-sans font-light text-cream/60 leading-relaxed">
+                  <p className="font-sans font-light text-cream/80 leading-relaxed">
                     Mineral waste forms the foundation, reducing landfills while maintaining superior structural strength.
                   </p>
                 </div>
@@ -75,7 +75,7 @@ const EcorePage = () => {
                 <div className="relative pl-8 border-l border-cream/20">
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-cream"></div>
                   <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-cream text-sm">02. Geopolymer Binders</h3>
-                  <p className="font-sans font-light text-cream/60 leading-relaxed">
+                  <p className="font-sans font-light text-cream/80 leading-relaxed">
                     Replacing traditional cement to create a dense matrix with exceptional chemical resistance.
                   </p>
                 </div>
@@ -83,7 +83,7 @@ const EcorePage = () => {
                 <div className="relative pl-8 border-l border-cream/20">
                   <div className="absolute left-[-4px] top-2 w-[7px] h-[7px] bg-clay"></div>
                   <h3 className="text-xl mb-2 font-sans uppercase tracking-widest text-clay text-sm">03. Micro-Fiber Stabilizers</h3>
-                  <p className="font-sans font-light text-cream/60 leading-relaxed">
+                  <p className="font-sans font-light text-cream/80 leading-relaxed">
                     Polymer reinforcement improves tensile strength, crack resistance, and impact tolerance.
                   </p>
                 </div>
@@ -109,7 +109,7 @@ const EcorePage = () => {
                 </div>
                 <div className="relative z-10 text-center bg-charcoal/80 backdrop-blur-sm p-6 border border-cream/10">
                   <div className="font-serif text-3xl text-cream mb-1">Matrix</div>
-                  <div className="font-sans text-[10px] tracking-widest uppercase text-cream/50">Cross-Linked Structure</div>
+                  <div className="font-sans text-[10px] tracking-widest uppercase text-cream/75">Cross-Linked Structure</div>
                 </div>
               </div>
             </motion.div>
@@ -123,14 +123,14 @@ const EcorePage = () => {
         <div className="container-custom max-w-5xl">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl mb-4">Technical Specifications</h2>
-            <p className="font-sans font-light text-cream/60">Comparative analysis against traditional clay masonry.</p>
+            <p className="font-sans font-light text-cream/80">Comparative analysis against traditional clay masonry.</p>
           </div>
 
           <div className="border border-cream/20 bg-charcoal/50 backdrop-blur-md">
-            <div className="grid grid-cols-3 border-b border-cream/20 p-6 font-sans text-xs tracking-widest uppercase text-cream/50">
+            <div className="grid grid-cols-3 border-b border-cream/20 p-6 font-sans text-xs tracking-widest uppercase text-cream/75">
               <div>Metric</div>
               <div>EcoCore™</div>
-              <div className="text-cream/30">Traditional</div>
+              <div className="text-cream/65">Traditional</div>
             </div>
             
             {specs.map((spec, index) => (
@@ -144,7 +144,7 @@ const EcorePage = () => {
               >
                 <div className="font-serif text-lg md:text-xl">{spec.label}</div>
                 <div className="font-sans font-medium text-sand text-lg">{spec.value}</div>
-                <div className="font-sans font-light text-cream/40">{spec.traditional}</div>
+                <div className="font-sans font-light text-cream/75">{spec.traditional}</div>
               </motion.div>
             ))}
           </div>

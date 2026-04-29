@@ -25,10 +25,10 @@ const Counter = ({ value, suffix = "", duration = 2, delay = 0 }) => {
 };
 
 const slides = [
-  { id: 1, src: null, label: 'Image 01' },
-  { id: 2, src: null, label: 'Image 02' },
-  { id: 3, src: null, label: 'Image 03' },
-  { id: 4, src: null, label: 'Image 04' },
+  { id: 1, src: '/images/carousel1.png', label: 'Commercial Deployment' },
+  { id: 2, src: '/images/carousel2.png', label: 'Sustainable Architecture' },
+  { id: 3, src: '/images/carousel3.png', label: 'Eco-Friendly Materials' },
+  { id: 4, src: '/images/carousel4.jpg', label: 'High Performance Construction' },
 ];
 
 const ImageSlider = () => {
@@ -56,7 +56,7 @@ const ImageSlider = () => {
   const next = () => goTo((current + 1) % slides.length);
 
   return (
-    <div className="relative h-full min-h-[400px] overflow-hidden border border-charcoal/20 bg-charcoal/5 group">
+    <div className="relative w-full aspect-square overflow-hidden border border-charcoal/20 bg-charcoal/5 group">
       {/* Slides */}
       {slides.map((slide, i) => (
         <div
@@ -72,7 +72,7 @@ const ImageSlider = () => {
                 <div className="w-16 h-16 border border-charcoal/20 flex items-center justify-center mx-auto mb-4">
                   <div className="w-6 h-6 border-2 border-charcoal/25 rounded-sm"></div>
                 </div>
-                <p className="font-sans text-xs tracking-widest uppercase text-charcoal/30">{slide.label}</p>
+                <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60">{slide.label}</p>
               </div>
             </div>
           )}
@@ -108,7 +108,7 @@ const ImageSlider = () => {
       </div>
 
       {/* Slide counter */}
-      <div className="absolute top-4 right-4 z-20 font-sans text-[10px] tracking-widest uppercase text-charcoal/40">
+      <div className="absolute top-4 right-4 z-20 font-sans text-[10px] tracking-widest uppercase text-charcoal/60">
         {String(current + 1).padStart(2, '0')} / {String(slides.length).padStart(2, '0')}
       </div>
     </div>
@@ -184,7 +184,7 @@ const HomePage = () => {
               transition={{ duration: 1, delay: 0.4 }}
               className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
             >
-              <p className="text-cream/80 font-sans font-light text-lg md:text-xl max-w-2xl leading-relaxed">
+              <p className="text-cream font-sans font-light text-lg md:text-xl max-w-2xl leading-relaxed">
                 Our advanced material systems convert waste into durable, scalable construction solutions.
               </p>
               <Link to="/products" className="btn-architectural-dark group whitespace-nowrap shrink-0">
@@ -221,15 +221,13 @@ const HomePage = () => {
               className="lg:col-span-6 lg:col-start-7"
             >
 
-              {/* 16:9 Image Placeholder — replace src below with your image */}
-              <div className="relative w-full mb-8 overflow-hidden border border-charcoal/15 bg-charcoal/5" style={{ aspectRatio: '16/9' }}>
-                <div className="absolute inset-0 blueprint-grid opacity-10"></div>
-                <div className="absolute inset-0 flex flex-col items-center justify-center">
-                  <div className="w-12 h-12 border border-charcoal/20 flex items-center justify-center mb-3">
-                    <div className="w-5 h-5 border-2 border-charcoal/20 rounded-sm"></div>
-                  </div>
-                  <p className="font-sans text-[10px] tracking-widest uppercase text-charcoal/25">Image Placeholder — 16:9</p>
-                </div>
+              <div className="relative w-full mb-8 overflow-hidden bg-charcoal/5" style={{ aspectRatio: '16/9' }}>
+                <img
+                  src="/images/main.JPG"
+                  alt="Ecobricks Mission"
+                  className="absolute inset-0 w-full h-full object-cover"
+                  onError={(e) => { e.currentTarget.src = "/images/hero-cover.png"; e.currentTarget.onerror = null; }}
+                />
               </div>
               <Link to="/about" className="inline-flex items-center font-sans text-sm tracking-widest uppercase hover:text-clay transition-colors border-b border-charcoal pb-1">
                 Read Our Story <ArrowUpRight className="ml-2 w-4 h-4" />
@@ -247,7 +245,7 @@ const HomePage = () => {
         <div className="container-custom section-padding relative z-10">
           <div className="text-center mb-20">
             <h2 className="text-4xl md:text-5xl mb-6">Measurable Impact</h2>
-            <p className="font-sans font-light text-cream/70 max-w-2xl mx-auto">
+            <p className="font-sans font-light text-cream/90 max-w-2xl mx-auto">
               Our proprietary manufacturing process delivers uncompromising structural integrity while radically reducing environmental footprint.
             </p>
           </div>
@@ -270,7 +268,7 @@ const HomePage = () => {
                   <Counter value={stat.value} suffix={stat.suffix} duration={2} delay={i * 0.2} />
                 </div>
                 <h3 className="text-xl mb-4 font-sans uppercase tracking-widest text-sm">{stat.label}</h3>
-                <p className="font-sans font-light text-cream/60 text-sm leading-relaxed">{stat.desc}</p>
+                <p className="font-sans font-light text-cream/80 text-sm leading-relaxed">{stat.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -361,7 +359,7 @@ const HomePage = () => {
                     <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-clay mb-3">Project 0{project.id}</div>
                     <h3 className="text-2xl mb-4 text-charcoal leading-tight">{project.title}</h3>
                     {/* Improved Text Legibility */}
-                    <p className="font-sans text-charcoal/80 text-sm leading-relaxed mb-8 flex-grow">
+                    <p className="font-sans text-charcoal/90 text-sm leading-relaxed mb-8 flex-grow">
                       {project.description}
                     </p>
 

@@ -176,7 +176,7 @@ const ProductsPage = () => {
             className="max-w-3xl"
           >
             <h1 className="text-5xl md:text-7xl mb-6">Sustainable Product Catalog</h1>
-            <p className="font-sans font-light text-charcoal/70 text-lg md:text-xl leading-relaxed mb-10">
+            <p className="font-sans font-light text-charcoal/90 text-lg md:text-xl leading-relaxed mb-10">
               Discover our range of eco-friendly, durable, and stylish products crafted from 100% recycled plastics and minerals. Designed to meet the rigorous demands of modern sustainable living.
             </p>
             <a 
@@ -234,14 +234,14 @@ const ProductsPage = () => {
                   >
                     <div className="font-sans text-xs tracking-widest uppercase text-clay mb-4">Product No. 0{product.id}</div>
                     <h2 className="text-4xl mb-6">{product.name}</h2>
-                    <p className="font-sans font-light text-charcoal/70 leading-relaxed mb-10">
+                    <p className="font-sans font-light text-charcoal/85 leading-relaxed mb-10">
                       {product.description}
                     </p>
 
                     <div className="space-y-0 border-t border-charcoal/20">
                       {Object.entries(product.specs).map(([key, value]) => (
                         <div key={key} className="grid grid-cols-1 sm:grid-cols-[140px_1fr] gap-2 sm:gap-6 py-4 border-b border-charcoal/10 font-sans text-sm">
-                          <span className="text-charcoal/50 uppercase tracking-wider text-xs whitespace-nowrap">{key}</span>
+                          <span className="text-charcoal/70 uppercase tracking-wider text-xs whitespace-nowrap">{key}</span>
                           <span className="font-medium text-charcoal">{value}</span>
                         </div>
                       ))}
@@ -264,7 +264,7 @@ const ProductsPage = () => {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12">
             <div className="text-center md:text-left flex-1">
               <h2 className="text-4xl md:text-5xl mb-4 text-charcoal">What Our Partners Say</h2>
-              <p className="font-sans font-light text-charcoal/70">Trusted by leading architects and engineers worldwide.</p>
+              <p className="font-sans font-light text-charcoal/80">Trusted by leading architects and engineers worldwide.</p>
             </div>
             <div className="flex gap-4 mt-8 md:mt-0">
               <button 
@@ -304,7 +304,7 @@ const ProductsPage = () => {
                     </p>
                     <div className="border-t border-charcoal/10 pt-3">
                       <div className="font-sans font-medium text-xs text-charcoal">{testimonial.name}</div>
-                      <div className="font-sans text-[10px] tracking-widest uppercase text-charcoal/50 mt-1">{testimonial.role}</div>
+                      <div className="font-sans text-[10px] tracking-widest uppercase text-charcoal/70 mt-1">{testimonial.role}</div>
                     </div>
                   </div>
                 </div>
