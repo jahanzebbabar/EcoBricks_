@@ -39,7 +39,7 @@ const ImageSlider = () => {
     clearInterval(timerRef.current);
     timerRef.current = setInterval(() => {
       setCurrent(prev => (prev + 1) % slides.length);
-    }, 3500);
+    }, 5000);
   };
 
   useEffect(() => {
@@ -64,9 +64,9 @@ const ImageSlider = () => {
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         >
           {slide.src ? (
-            <img src={slide.src} alt={slide.label} className="w-full h-full object-cover" />
+            <img src={slide.src} alt={slide.label} className="absolute inset-0 w-full h-full object-cover object-center" />
           ) : (
-            <div className="w-full h-full flex flex-col items-center justify-center bg-charcoal/5">
+            <div className="absolute inset-0 flex flex-col items-center justify-center bg-charcoal/5">
               <div className="absolute inset-0 blueprint-grid opacity-20"></div>
               <div className="relative z-10 text-center">
                 <div className="w-16 h-16 border border-charcoal/20 flex items-center justify-center mx-auto mb-4">
@@ -122,7 +122,7 @@ const HomePage = () => {
       id: 1,
       title: 'SMME, NUST',
       image: '/images/project-1.png',
-      description: 'In collaboration with the NUST School of Mechanical & Manufacturing Engineering, SMME (our beloved institute), introducing Eco Friendly Tiles on a staircase. ♻️ CO2 Reduction: Cut 78 kg CO2 equivalent ♻️ Plastic Waste Reduction: Eliminated 100 kg of plastic bags waste ♻️ Water Conservation: Saved 207 liters',
+      description: 'In collaboration with the NUST School of Mechanical & Manufacturing Engineering, SMME (our beloved institute), introducing Eco Friendly Tiles on a staircase. CO2 Reduction: Cut 78 kg CO2 equivalent. Plastic Waste Reduction: Eliminated 100 kg of plastic bags waste. Water Conservation: Saved 207 liters.',
     },
     {
       id: 2,
@@ -185,7 +185,7 @@ const HomePage = () => {
               className="flex flex-col sm:flex-row items-start sm:items-center gap-8"
             >
               <p className="text-cream font-sans font-light text-lg md:text-xl max-w-2xl leading-relaxed">
-                Our advanced material systems convert waste into durable, scalable construction solutions.
+                Our advanced material systems convert low value plastic waste into durable, scalable, day to day products.
               </p>
               <Link to="/products" className="btn-architectural-dark group whitespace-nowrap shrink-0">
                 View Products
@@ -211,7 +211,7 @@ const HomePage = () => {
               className="lg:col-span-5"
             >
               <div className="font-sans text-xs tracking-widest uppercase text-clay mb-6">Corporate Mission</div>
-              <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Turning non-recyclable waste into durable eco-tiles and furniture  for real-world applications.</h2>
+              <h2 className="text-4xl md:text-5xl mb-8 leading-tight">Turning non-recyclable waste into durable eco-products and furniture for real-world applications.</h2>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, x: 30 }}
@@ -344,7 +344,7 @@ const HomePage = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="group h-full"
               >
-                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-4 h-full flex flex-col">
+                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-8 h-full flex flex-col">
                   {/* Fixed Aspect Ratio for Images */}
                   <div className="relative overflow-hidden mb-8 bg-charcoal aspect-[4/3] shrink-0">
                     <img
@@ -362,10 +362,6 @@ const HomePage = () => {
                     <p className="font-sans text-charcoal/90 text-base leading-relaxed mb-8 flex-grow">
                       {project.description}
                     </p>
-
-                    <Link to="/services" className="inline-flex items-center text-xs tracking-widest uppercase text-charcoal font-semibold hover:text-clay transition-colors mt-auto pt-4 border-t border-charcoal/10">
-                      Case Study <ArrowUpRight className="ml-2 w-3.5 h-3.5" />
-                    </Link>
                   </div>
                 </div>
               </motion.div>

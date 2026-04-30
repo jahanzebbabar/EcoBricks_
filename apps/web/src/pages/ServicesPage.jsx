@@ -25,7 +25,7 @@ const ServicesPage = () => {
           >
             <div className="font-sans text-xs tracking-widest uppercase text-clay mb-6">What We Offer</div>
             <h1 className="text-5xl md:text-7xl mb-6 leading-tight">Our Services</h1>
-            <p className="font-sans font-light text-charcoal/80 text-lg max-w-xl leading-relaxed">
+            <p className="font-sans font-normal text-charcoal/90 text-lg md:text-xl leading-relaxed mb-10">
               Two core offerings designed to make sustainability practical, engaging, and impactful.
             </p>
           </motion.div>
@@ -67,7 +67,7 @@ const ServicesPage = () => {
                 A hands-on team experience built around sustainability.
               </p>
               <p className="font-sans font-normal text-charcoal/75 leading-relaxed text-lg">
-                Bring your team together through guided ecobrick-making workshops. Collect plastic waste, compact it into bricks, and create something lasting — a tangible symbol of your organization's commitment to the environment.
+                Bring your team together through guided ecobrick-making workshops. Paint pots and create something lasting, a tangible symbol of your organization's commitment to the environment.
               </p>
             </motion.div>
           </div>
@@ -107,18 +107,7 @@ const ServicesPage = () => {
 
       {/* Service 02 — Waste Consultation */}
       <section className="border-b border-charcoal/10">
-        <div className="flex flex-col md:flex-row-reverse min-h-[520px]">
-
-          {/* Image Placeholder — Right */}
-          <div className="w-full md:w-1/2 min-h-[300px] md:min-h-0 bg-forest/5 border-l border-charcoal/10 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 blueprint-grid opacity-10"></div>
-            <div className="relative z-10 text-center px-8">
-              <div className="w-16 h-16 border border-charcoal/20 flex items-center justify-center mx-auto mb-4">
-                <div className="w-6 h-6 border-2 border-charcoal/30 rounded-sm"></div>
-              </div>
-              <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60">Image Placeholder</p>
-            </div>
-          </div>
+        <div className="flex flex-col md:flex-row min-h-[520px]">
 
           {/* Text — Left */}
           <div className="w-full md:w-1/2 flex items-center py-16 px-8 md:px-20 bg-sand/30">
@@ -140,22 +129,36 @@ const ServicesPage = () => {
                 Turning your plastic problem into a resource.
               </p>
               <p className="font-sans font-normal text-charcoal/75 leading-relaxed text-lg">
-                We assess your organization's plastic waste streams, develop a structured collection plan, and convert that waste into high-quality ecobricks for use in real construction projects. A complete, closed-loop solution.
+                We assess your organization's plastic waste streams, develop a structured collection plan, and convert that waste into high-quality ecobricks products for day to day use. A complete, closed-loop solution.
               </p>
             </motion.div>
           </div>
+
+          {/* Image 4 — Right */}
+          <div className="w-full md:w-1/2 min-h-[300px] md:min-h-0 bg-forest/5 border-l border-charcoal/10 flex items-center justify-center relative overflow-hidden group">
+            <img 
+              src="/images/service4.png" 
+              onError={(e) => { e.currentTarget.src = "/images/service4.jpg"; e.currentTarget.onerror = null; }}
+              alt="Waste recycling activity"
+              className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+          </div>
         </div>
 
-        {/* Second image row for Service 02 */}
-        <div className="flex flex-col md:flex-row min-h-[300px] border-t border-charcoal/10">
-          <div className="w-full md:w-1/2 min-h-[200px] bg-cream/60 border-r border-charcoal/10 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60 z-10">Image Placeholder</p>
-          </div>
-          <div className="w-full md:w-1/2 min-h-[200px] bg-sand/30 flex items-center justify-center relative overflow-hidden">
-            <div className="absolute inset-0 blueprint-grid opacity-5"></div>
-            <p className="font-sans text-xs tracking-widest uppercase text-charcoal/60 z-10">Image Placeholder</p>
-          </div>
+        {/* Three supporting images under Service 02 */}
+        <div className="grid grid-cols-1 sm:grid-cols-3 border-t border-charcoal/10">
+          {[1, 2, 3].map((index) => (
+            <div key={index} className="min-h-[300px] bg-cream/60 border-b border-charcoal/10 sm:border-b-0 sm:border-r last:border-r-0 flex items-center justify-center relative overflow-hidden group">
+              <img
+                src={`/images/service${index}.png`}
+                onError={(e) => { e.currentTarget.src = `/images/service${index}.jpg`; e.currentTarget.onerror = null; }}
+                alt={`Waste recycling ${index}`}
+                className="absolute inset-0 w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-charcoal/10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+            </div>
+          ))}
         </div>
       </section>
 
