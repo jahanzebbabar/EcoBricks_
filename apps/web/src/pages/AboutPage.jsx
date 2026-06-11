@@ -4,15 +4,15 @@ import { motion } from 'framer-motion';
 
 const AboutPage = () => {
   const timeline = [
-    { year: '2018', title: 'Foundation', desc: 'Established with a vision to disrupt traditional masonry.' },
-    { year: '2020', title: 'EcoCore™ Patent', desc: 'Successful development of our proprietary geopolymer binder.' },
-    { year: '2022', title: 'Facility Expansion', desc: 'Opening of our first net-zero manufacturing plant.' },
-    { year: '2024', title: 'Global Reach', desc: 'Supplying architectural projects across three continents.' },
+    { year: '2023', title: 'Foundation', desc: 'Established with a vision to disrupt traditional masonry.' },
+    { year: '2024', title: 'EcoCore™ Patent', desc: 'Successful development of our Factory.' },
+    { year: '2025', title: 'Facility Expansion', desc: 'Opening of our first net-zero manufacturing plant.' },
+    { year: '2026', title: 'Product Expansion and Consultation', desc: 'Supplying Products and consultation to companies across Pakistan.' },
   ];
 
   const leadership = [
-    { name: 'Dr. Sarah Chen', role: 'Chief Executive Officer', img: 'https://images.unsplash.com/photo-1572891458752-1fde7b8074b6?w=800' },
-    { name: 'Michael Rodriguez', role: 'Head of Engineering', img: 'https://images.unsplash.com/photo-1649162959584-50571b33c693?w=800' },
+    { name: 'Kashaf Akhtar', role: 'Chief Executive Officer', img: '/images/ceo.jpeg' },
+    { name: 'Muhammad Ahmad', role: 'Director Planning and Resource', img: '/images/director.jpeg' },
   ];
 
   return (
@@ -48,9 +48,9 @@ const AboutPage = () => {
           <div className="absolute inset-0 blueprint-grid-dark opacity-10"></div>
           <div className="relative z-10 max-w-md ml-auto">
             <div className="font-sans text-xs tracking-widest uppercase text-sand mb-6">Our Mission</div>
-            <h2 className="text-3xl md:text-4xl mb-6 leading-tight">To engineer materials that regenerate rather than deplete.</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 leading-tight">Turning Waste into Value, One Innovation at a Time</h2>
             <p className="font-sans font-light text-cream/85 leading-relaxed">
-              Providing high-performance, sustainable building materials that don't compromise on quality or aesthetics.
+              We combat plastic pollution by transforming low-value waste into durable, aesthetic products, while empowering global organizations and local communities to actively participate in the circular economy.
             </p>
           </div>
         </div>
@@ -58,9 +58,9 @@ const AboutPage = () => {
           <div className="absolute inset-0 bg-noise opacity-20"></div>
           <div className="relative z-10 max-w-md mr-auto">
             <div className="font-sans text-xs tracking-widest uppercase text-clay mb-6">Our Vision</div>
-            <h2 className="text-3xl md:text-4xl mb-6 leading-tight">A future where every structure acts as a carbon sink.</h2>
+            <h2 className="text-3xl md:text-4xl mb-6 leading-tight">Redefining the Future of Consumption and Design.</h2>
             <p className="font-sans font-light text-cream/85 leading-relaxed">
-              A construction industry operating in perfect harmony with nature, utilizing responsible materials.
+              We aspire to build a premier circular economy brand, fostering a widespread culture of sustainability where discarded materials are fundamentally recognized as an invaluable resource.
             </p>
           </div>
         </div>
@@ -97,16 +97,16 @@ const AboutPage = () => {
             <h3 className="text-3xl mb-12 border-b border-charcoal/20 pb-4">Core Principles</h3>
             <div className="space-y-12">
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h4 className="text-2xl mb-3">Structural Integrity First</h4>
-                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">Engineered for extreme durability, meeting all international building codes for load-bearing applications.</p>
+                <h4 className="text-2xl mb-3"> Engineered for Everyday Endurance.</h4>
+                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">We create 100% recycled products that are weather-resistant and exceptionally durable</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h4 className="text-2xl mb-3">Radical Transparency</h4>
-                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">Complete lifecycle analysis data allows architects to make informed, sustainable design decisions.</p>
+                <h4 className="text-2xl mb-3">Empowering the Circular Ecosystem.</h4>
+                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">We engage businesses, schools, and communities through interactive sustainability workshops.</p>
               </motion.div>
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-                <h4 className="text-2xl mb-3">Circular Manufacturing</h4>
-                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">Closed-loop facilities with recycled water, renewable energy, and raw materials diverted from waste.</p>
+                <h4 className="text-2xl mb-3">Giving Waste a Second Life.</h4>
+                <p className="font-sans font-normal text-charcoal/90 text-lg leading-relaxed">We transform difficult-to-recycle, low-value plastic waste into premium, everyday products.</p>
               </motion.div>
             </div>
           </div>
@@ -137,7 +137,7 @@ const AboutPage = () => {
                   <img 
                     src={leader.img} 
                     alt={leader.name} 
-                    className="w-full h-full object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal group-hover:scale-105 transition-all duration-700"
+                    className="w-full h-full object-cover transition-all duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 border border-charcoal/10 m-4 pointer-events-none"></div>
                 </div>

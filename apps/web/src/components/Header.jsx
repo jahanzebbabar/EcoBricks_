@@ -47,11 +47,11 @@ const Header = () => {
         <div className="flex items-center justify-between h-24">
           {/* Logo */}
           <Link to="/" className="flex items-center group z-50">
-            <img 
-              src="https://horizons-cdn.hostinger.com/f627cceb-b15f-480f-b293-26ac2f095787/1343c70e6ab2fff7fbf98ed2bbfbc5f0.png" 
-              alt="Ecobricks Logo" 
+            <img
+              src="/images/ecobricks_logo.png"
+              alt="Ecobricks Logo"
               className={`h-10 md:h-12 w-auto mr-3 object-contain transition-all duration-500 group-hover:scale-105 ${
-                isDarkPage || (isHomePage && !isScrolled) ? '' : 'brightness-0'
+                headerTextColor === 'text-cream' ? '' : 'filter invert'
               }`}
             />
             <div className="flex flex-col">

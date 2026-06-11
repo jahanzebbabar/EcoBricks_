@@ -179,7 +179,7 @@ const ServicesPage = () => {
               Get in touch and we'll find the right service for you.
             </p>
             <a
-              href="mailto:hello@ecobricks.pk"
+              href="mailto:marketing@theecobricks.com"
               className="inline-flex items-center gap-3 px-10 py-4 bg-cream text-forest font-sans text-xs tracking-widest uppercase font-semibold hover:bg-sand transition-colors duration-300"
             >
               <Mail className="w-4 h-4" />

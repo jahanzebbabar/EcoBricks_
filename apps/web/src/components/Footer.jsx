@@ -18,7 +18,7 @@ const Footer = () => {
               <span className="font-serif text-3xl tracking-widest uppercase">Ecobricks</span>
             </Link>
             <p className="font-sans text-cream/70 max-w-sm leading-relaxed font-light">
-              Engineered eco-conscious materials. Building the future with structural integrity and sustainable precision.
+              Our advanced material systems convert low value plastic waste into durable, scalable, day to day products.
             </p>
           </div>
 
@@ -40,9 +40,9 @@ const Footer = () => {
           <div className="md:col-span-3 md:col-start-10">
             <h4 className="font-sans text-xs tracking-widest uppercase text-cream/50 mb-6">Contact</h4>
             <ul className="space-y-4 font-sans font-light text-cream/80">
-              <li>123 Sustainable Way<br/>Green City, EC 12345</li>
-              <li><a href="mailto:info@ecobricks.com" className="hover:text-sand transition-colors">info@ecobricks.com</a></li>
-              <li>+1 (555) 123-4567</li>
+              <li><br/>Office #107, NSTP, NUST, H-12, Islamabad</li>
+              <li><a href="mailto:marketing@theecobricks.com" className="hover:text-sand transition-colors">info@ecobricks.com</a></li>
+              <li>+92 339 0046214</li>
             </ul>
           </div>
         </div>

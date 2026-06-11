@@ -24,7 +24,7 @@ const ProductsPage = () => {
       id: 2,
       name: 'Park Bench',
       category: 'Outdoor Furniture',
-      image: '/images/park_bench.JPG',
+      image: '/images/park_bench.jpeg',
       description: 'Made from recycled plastic and minerals, Park Benches are lightweight, durable, and weatherproof, perfect for modern public spaces and sustainable urban design. Upgrade your community areas with eco-friendly seating that combines comfort, durability, and sustainability.',
       specs: {
         'Eco-friendly': 'Made from 100% recycled plastic waste.',
