@@ -30,7 +30,7 @@ export default function FloatingLeadWidget() {
       setTimeout(() => {
         setIdx(i => (i + 1) % messages.length);
         setAnim(true);
-      }, 300); // small gap for cross-fade/slide
+      }, 300);
     }, 3500);
     return () => clearInterval(iv);
   }, []);
@@ -63,19 +63,17 @@ export default function FloatingLeadWidget() {
           aria-label="Contact us"
           className="flex items-center gap-3 pl-4 pr-5 py-3 rounded-full shadow-xl transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-forest bg-forest text-cream border-cream/10"
         >
-          <div className={`max-w-xs overflow-hidden h-6 relative`}> 
-            <div className={`absolute left-0 top-0 transition-all duration-300 ${anim ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
-              <span className="text-sm font-semibold tracking-tight">{messages[idx]}</span>
-            </div>
-          </div>
+          <span className={`text-sm font-semibold tracking-tight max-w-xs block truncate transition-all duration-500 ${anim ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
+            {messages[idx]}
+          </span>
         </button>
       </div>
 
       {/* Modal */}
       {open && (
-        <div className="fixed inset-0 z-60 flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
-          <div className="relative bg-cream rounded-lg shadow-xl w-full max-w-md mx-auto p-6">
+        <div style={{ zIndex: 99999 }} className="fixed inset-0 flex items-center justify-center p-4">
+          <div style={{ zIndex: 99990 }} className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
+          <div style={{ zIndex: 100000 }} className="relative bg-cream rounded-lg shadow-xl w-full max-w-md mx-auto p-6">
             {status === 'success' ? (
               <div className="text-center py-6">
                 <h3 className="text-lg font-bold">Thank you! We'll be in touch soon.</h3>
