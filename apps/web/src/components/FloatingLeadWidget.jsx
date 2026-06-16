@@ -89,8 +89,8 @@ export default function FloatingLeadWidget() {
       console.warn('local save failed', e);
     }
 
-    try {
-      const res = await fetch('https://script.google.com/macros/s/AKfycbyE9YD-3pxKKj8rAo7Nf3q3-eCCFcvgQy3qm26Yc2-Axp2Z9IMN0KSahkbJTEyhYnrH3w/exec', {
+      try {
+      const res = await fetch('/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: value }),
