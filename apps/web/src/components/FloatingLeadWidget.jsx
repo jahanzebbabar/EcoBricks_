@@ -90,16 +90,16 @@ export default function FloatingLeadWidget() {
     }
 
       try {
-      const res = await fetch('/api/lead', {
+      await fetch('https://script.google.com/macros/s/AKfycbyE9YD-3pxKKj8rAo7Nf3q3-eCCFcvgQy3qm26Yc2-Axp2Z9IMN0KSahkbJTEyhYnrH3w/exec', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email: value }),
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: new URLSearchParams({ email: value })
       });
 
-      if (!res.ok) {
-        throw new Error('Network response was not ok');
-      }
-
+      // With `no-cors` the response is opaque; treat fetch resolving as success
       setStatus('success');
       setEmail('');
     } catch (err) {
