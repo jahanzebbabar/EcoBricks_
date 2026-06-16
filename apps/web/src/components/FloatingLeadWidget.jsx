@@ -90,7 +90,7 @@ export default function FloatingLeadWidget() {
     }
 
       try {
-      await fetch('https://script.google.com/macros/s/AKfycbyE9YD-3pxKKj8rAo7Nf3q3-eCCFcvgQy3qm26Yc2-Axp2Z9IMN0KSahkbJTEyhYnrH3w/exec', {
+      await fetch('https://script.google.com/macros/s/AKfycbyPkgVDQXZ7JowJlC038jJWcJVPga_qkqj1dpvqc7ZWq-uPmfyiWfsh_H0518brvPvwPQ/exec', {
         method: 'POST',
         mode: 'no-cors',
         headers: {
