@@ -22,7 +22,8 @@ export default function FloatingLeadWidget() {
   const [anim, setAnim] = useState(true);
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState('');
-  const [status, setStatus] = useState('idle'); // idle, sending, success
+  const [status, setStatus] = useState('idle'); // idle, sending, success, error
+  const [errorMessage, setErrorMessage] = useState('');
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
 
   useEffect(() => {
@@ -55,23 +56,57 @@ export default function FloatingLeadWidget() {
     };
   }, []);
 
-  function handleSubmit(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    if (!email) return;
+    const value = (email || '').trim();
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!value) {
+      setErrorMessage('Please enter your email.');
+      setStatus('error');
+      return;
+    }
+    if (!emailRegex.test(value)) {
+      setErrorMessage('Please enter a valid email address.');
+      setStatus('error');
+      return;
+    }
+
+    setErrorMessage('');
     setStatus('sending');
+
     const lead = {
-      email,
-      page: window.location.pathname,
+      email: value,
+      page: typeof window !== 'undefined' ? window.location.pathname : '',
       message: messages[idx],
       ts: new Date().toISOString(),
     };
-    // store locally for later connection to Formspree/Sheets/backend
-    saveLead(lead);
-    // optionally: send to remote endpoint if configured (placeholder)
-    setTimeout(() => {
+
+    // store locally first
+    try {
+      saveLead(lead);
+    } catch (e) {
+      // non-fatal
+      console.warn('local save failed', e);
+    }
+
+    try {
+      const res = await fetch('https://script.google.com/macros/s/AKfycbyE9YD-3pxKKj8rAo7Nf3q3-eCCFcvgQy3qm26Yc2-Axp2Z9IMN0KSahkbJTEyhYnrH3w/exec', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: value }),
+      });
+
+      if (!res.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       setStatus('success');
       setEmail('');
-    }, 600);
+    } catch (err) {
+      console.error('submit error', err);
+      setErrorMessage("Something went wrong. Please try again.");
+      setStatus('error');
+    }
   }
 
   return (
@@ -121,10 +156,13 @@ export default function FloatingLeadWidget() {
                     className="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest"
                     placeholder="you@example.com"
                   />
+                  {status === 'error' && errorMessage && (
+                    <p className="mt-2 text-sm text-destructive">{errorMessage}</p>
+                  )}
                 </div>
                 <div className="flex justify-end gap-2">
                   <button type="button" className="px-4 py-2 rounded-md" onClick={() => setOpen(false)}>Cancel</button>
-                  <Button type="submit" disabled={status === 'sending'}>Contact Me</Button>
+                  <Button type="submit" disabled={status === 'sending'}>{status === 'sending' ? 'Sending...' : 'Contact Me'}</Button>
                 </div>
               </form>
             )}
