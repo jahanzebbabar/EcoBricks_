@@ -23,6 +23,7 @@ export default function FloatingLeadWidget() {
   const [open, setOpen] = useState(false);
   const [email, setEmail] = useState('');
   const [status, setStatus] = useState('idle'); // idle, sending, success
+  const [isOverDarkSection, setIsOverDarkSection] = useState(false);
 
   useEffect(() => {
     const iv = setInterval(() => {
@@ -33,6 +34,25 @@ export default function FloatingLeadWidget() {
       }, 300);
     }, 3500);
     return () => clearInterval(iv);
+  }, []);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (typeof document === 'undefined') return;
+      const x = 80; // near left floating widget
+      const y = window.innerHeight - 50;
+      const elements = document.elementsFromPoint(x, y);
+      const overDark = elements.some(el => el.classList && (el.classList.contains('bg-forest') || el.classList.contains('bg-charcoal')));
+      setIsOverDarkSection(overDark);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener('resize', handleScroll);
+    setTimeout(handleScroll, 100);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
   }, []);
 
   function handleSubmit(e) {
@@ -61,7 +81,11 @@ export default function FloatingLeadWidget() {
         <button
           onClick={() => setOpen(true)}
           aria-label="Contact us"
-          className="flex items-center gap-3 pl-4 pr-5 py-3 rounded-full shadow-xl transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-forest bg-forest text-cream border-cream/10"
+          className={`flex items-center gap-3 pl-4 pr-5 py-3 rounded-full shadow-xl transition-all duration-500 transform hover:scale-105 focus:outline-none focus:ring-2 ${
+            isOverDarkSection
+              ? 'bg-cream text-forest hover:bg-cream/90 border-forest/10'
+              : 'bg-forest text-cream hover:bg-forest/90 border-cream/10'
+          }`}
         >
           <span className={`text-sm font-semibold tracking-tight max-w-xs block truncate transition-all duration-500 ${anim ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
             {messages[idx]}
