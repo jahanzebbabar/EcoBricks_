@@ -10,6 +10,7 @@ import ServicesPage from './pages/ServicesPage.jsx';
 import AboutPage from './pages/AboutPage.jsx';
 import EcorePage from './pages/EcorePage.jsx';
 import { Toaster } from '@/components/ui/toaster';
+import FloatingLeadWidget from './components/FloatingLeadWidget';
 
 function App() {
   const [isOverDarkSection, setIsOverDarkSection] = useState(false);
@@ -73,6 +74,8 @@ function App() {
       </a>
 
       <Toaster />
+      {/* Floating Lead Widget */}
+      <FloatingLeadWidget />
     </Router>
   );
 }

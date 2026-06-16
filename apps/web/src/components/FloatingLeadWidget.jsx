@@ -1,0 +1,114 @@
+import React, { useEffect, useState } from 'react';
+import { Button } from './ui/button';
+
+const messages = [
+  'Contact Us for Waste Management Consultation',
+  'Ask About Bulk Order Discounts',
+  "Get Expert Guidance for Your Project",
+];
+
+function saveLead(lead) {
+  try {
+    const existing = JSON.parse(localStorage.getItem('ecobricks_leads') || '[]');
+    existing.push(lead);
+    localStorage.setItem('ecobricks_leads', JSON.stringify(existing));
+  } catch (e) {
+    console.error('saveLead error', e);
+  }
+}
+
+export default function FloatingLeadWidget() {
+  const [idx, setIdx] = useState(0);
+  const [anim, setAnim] = useState(true);
+  const [open, setOpen] = useState(false);
+  const [email, setEmail] = useState('');
+  const [status, setStatus] = useState('idle'); // idle, sending, success
+
+  useEffect(() => {
+    const iv = setInterval(() => {
+      setAnim(false);
+      setTimeout(() => {
+        setIdx(i => (i + 1) % messages.length);
+        setAnim(true);
+      }, 300); // small gap for cross-fade/slide
+    }, 3500);
+    return () => clearInterval(iv);
+  }, []);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!email) return;
+    setStatus('sending');
+    const lead = {
+      email,
+      page: window.location.pathname,
+      message: messages[idx],
+      ts: new Date().toISOString(),
+    };
+    // store locally for later connection to Formspree/Sheets/backend
+    saveLead(lead);
+    // optionally: send to remote endpoint if configured (placeholder)
+    setTimeout(() => {
+      setStatus('success');
+      setEmail('');
+    }, 600);
+  }
+
+  return (
+    <>
+      {/* Floating widget */}
+      <div className="fixed bottom-6 left-6 z-50 flex items-center">
+        <button
+          onClick={() => setOpen(true)}
+          aria-label="Contact us"
+          className="flex items-center gap-3 pl-4 pr-5 py-3 rounded-full shadow-xl transition-transform transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-forest bg-forest text-cream border-cream/10"
+        >
+          <div className={`max-w-xs overflow-hidden h-6 relative`}> 
+            <div className={`absolute left-0 top-0 transition-all duration-300 ${anim ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
+              <span className="text-sm font-semibold tracking-tight">{messages[idx]}</span>
+            </div>
+          </div>
+        </button>
+      </div>
+
+      {/* Modal */}
+      {open && (
+        <div className="fixed inset-0 z-60 flex items-center justify-center p-4">
+          <div className="absolute inset-0 bg-black/40" onClick={() => setOpen(false)} />
+          <div className="relative bg-cream rounded-lg shadow-xl w-full max-w-md mx-auto p-6">
+            {status === 'success' ? (
+              <div className="text-center py-6">
+                <h3 className="text-lg font-bold">Thank you! We'll be in touch soon.</h3>
+                <div className="mt-4">
+                  <Button variant="default" onClick={() => { setStatus('idle'); setOpen(false); }}>Close</Button>
+                </div>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div>
+                  <h3 className="text-xl font-bold">Let's Talk</h3>
+                  <p className="text-sm mt-1 text-muted-foreground">Leave your email and we'll reach out to you.</p>
+                </div>
+                <div>
+                  <label className="sr-only">Email</label>
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={e => setEmail(e.target.value)}
+                    className="w-full rounded-md border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-forest"
+                    placeholder="you@example.com"
+                  />
+                </div>
+                <div className="flex justify-end gap-2">
+                  <button type="button" className="px-4 py-2 rounded-md" onClick={() => setOpen(false)}>Cancel</button>
+                  <Button type="submit" disabled={status === 'sending'}>Contact Me</Button>
+                </div>
+              </form>
+            )}
+          </div>
+        </div>
+      )}
+    </>
+  );
+}
