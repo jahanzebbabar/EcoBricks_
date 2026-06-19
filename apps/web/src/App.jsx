@@ -59,17 +59,17 @@ function App() {
         href="https://ecobricks-106.myshopify.com/" 
         target="_blank"
         rel="noopener noreferrer"
-        className={`fixed bottom-6 right-6 z-50 flex items-center gap-3 pl-8 pr-5 py-4 rounded-full shadow-xl transition-all duration-500 hover:scale-110 group border ${
+        className={`fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50 flex items-center gap-2 sm:gap-3 pl-4 sm:pl-8 pr-3 sm:pr-5 py-2 sm:py-4 rounded-full shadow-xl transition-all duration-500 hover:scale-110 group border ${
           isOverDarkSection 
             ? 'bg-cream text-forest hover:bg-cream/90 border-forest/10' 
             : 'bg-forest text-cream hover:bg-forest/90 border-cream/10'
         }`}
       >
-        <span className="font-sans text-xs tracking-widest uppercase font-semibold">Shop Now</span>
-        <div className={`w-9 h-9 rounded-full flex items-center justify-center transition-colors ${
+        <span className="font-sans text-[10px] sm:text-xs tracking-widest uppercase font-semibold">Shop Now</span>
+        <div className={`w-7 h-7 sm:w-9 sm:h-9 rounded-full flex items-center justify-center transition-colors ${
           isOverDarkSection ? 'bg-forest/10 group-hover:bg-forest/20' : 'bg-cream/20 group-hover:bg-cream/40'
         }`}>
-          <ArrowRight className="w-5 h-5 transition-transform group-hover:translate-x-0.5" />
+          <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 transition-transform group-hover:translate-x-0.5" />
         </div>
       </a>
 

@@ -112,17 +112,17 @@ export default function FloatingLeadWidget() {
   return (
     <>
       {/* Floating widget */}
-      <div className="fixed bottom-6 left-6 z-50 flex items-center">
+      <div className="fixed bottom-4 sm:bottom-6 left-4 sm:left-6 z-50 flex items-center">
         <button
           onClick={() => setOpen(true)}
           aria-label="Contact us"
-          className={`flex items-center gap-3 pl-4 pr-5 py-3 rounded-full shadow-xl transition-all duration-500 transform hover:scale-105 focus:outline-none focus:ring-2 ${
+          className={`flex items-center gap-2 sm:gap-3 pl-3 sm:pl-4 pr-3 sm:pr-5 py-2 sm:py-3 rounded-full shadow-xl transition-all duration-500 transform hover:scale-105 focus:outline-none focus:ring-2 ${
             isOverDarkSection
               ? 'bg-cream text-forest hover:bg-cream/90 border-forest/10'
               : 'bg-forest text-cream hover:bg-forest/90 border-cream/10'
           }`}
         >
-          <span className={`text-sm font-semibold tracking-tight max-w-xs block truncate transition-all duration-500 ${anim ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
+          <span className={`text-[12px] sm:text-sm font-semibold tracking-tight max-w-[9rem] sm:max-w-xs block truncate transition-all duration-500 ${anim ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2'}`}>
             {messages[idx]}
           </span>
         </button>
