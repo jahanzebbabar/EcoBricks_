@@ -134,7 +134,7 @@ const HomePage = () => {
       id: 3,
       title: 'HCCS School',
       image: '/images/project-3.png',
-      description: 'Emerald Data Solutions is revolutionizing the way schools and universities manage their facilities. Our intuitive maintenance management system enhances operational efficiency, allowing educational institutions to dedicate more time to student instruction.'
+      description: 'Educational deployment at HCCS School, introducing custom-patterned Eco-Friendly Tiles to form the schools initials on an outdoor walkway. This project demonstrates sustainable construction to the next generation while delivering tangible environmental relief. CO2 Reduction: Cut 120 kg CO2 equivalent. Plastic Waste Reduction: Eliminated 80 kg of plastic bags waste. Water Conservation: Saved 150 liters.'
     }
   ];
 
