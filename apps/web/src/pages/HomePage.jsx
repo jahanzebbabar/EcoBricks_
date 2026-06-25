@@ -350,9 +350,9 @@ const HomePage = () => {
                 transition={{ duration: 0.6, delay: index * 0.15 }}
                 className="group h-full"
               >
-                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-8 h-full flex flex-col">
+                <div className="geometric-frame bg-white/50 backdrop-blur-sm p-5 h-full flex flex-col">
                   {/* Fixed Aspect Ratio for Images */}
-                  <div className="relative overflow-hidden mb-8 bg-charcoal aspect-[4/3] shrink-0">
+                  <div className="relative overflow-hidden mb-4 bg-charcoal aspect-video shrink-0">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -362,10 +362,10 @@ const HomePage = () => {
                   </div>
 
                   <div className="flex flex-col flex-grow">
-                    <div className="font-sans text-[10px] tracking-[0.2em] uppercase text-clay mb-3">Project 0{project.id}</div>
-                    <h3 className="text-2xl mb-4 text-charcoal leading-tight">{project.title}</h3>
+                    <div className="font-sans text-[9px] tracking-[0.2em] uppercase text-clay mb-2">Project 0{project.id}</div>
+                    <h3 className="text-lg mb-3 text-charcoal leading-tight">{project.title}</h3>
                     {/* Improved Text Legibility */}
-                    <p className="font-sans text-charcoal/90 text-base leading-relaxed mb-8 flex-grow">
+                    <p className="font-sans text-charcoal/90 text-sm leading-relaxed mb-4 flex-grow">
                       {project.description}
                     </p>
                   </div>
