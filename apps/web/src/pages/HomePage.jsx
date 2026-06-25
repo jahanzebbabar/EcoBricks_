@@ -135,6 +135,12 @@ const HomePage = () => {
       title: 'HCCS School',
       image: '/images/project-3.png',
       description: 'Educational deployment at HCCS School, introducing custom-patterned Eco-Friendly Tiles to form the schools initials on an outdoor walkway. This project demonstrates sustainable construction to the next generation while delivering tangible environmental relief. CO2 Reduction: Cut 120 kg CO2 equivalent. Plastic Waste Reduction: Eliminated 80 kg of plastic bags waste. Water Conservation: Saved 150 liters.'
+    },
+    {
+      id: 4,
+      title: 'Eco-Furniture for Punjab\'s Education Sector',
+      image: '/images/project4.png',
+      description: 'This arrangement is part of the CM School Nutrition Program Punjab, under which 1.2 million packs are delivered daily across 11 districts. We have converted these milk packets and biscuit wrappers waste from 7,000+ government schools into practical recycled school furniture. Materials Recycled: 67 million used beverage cartons and 25 million biscuit wrappers. Impact: Created 1,500+ benches and desks for Punjab government schools to improve learning environments.'
     }
   ];
 
@@ -334,7 +340,7 @@ const HomePage = () => {
 
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8 items-stretch">
             {projects.map((project, index) => (
               <motion.div
                 key={project.id}
