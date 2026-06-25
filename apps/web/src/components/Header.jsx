@@ -48,7 +48,7 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center group z-50">
               <img
-                src="/images/ecobricks_logo.png"
+                src={headerTextColor === 'text-cream' ? '/images/ecobricks_logo.png' : '/images/green_logo.png'}
                 alt="Ecobricks Logo"
                 className="h-10 md:h-12 w-auto mr-3 object-contain transition-all duration-500 group-hover:scale-105"
               />
