@@ -58,13 +58,13 @@ const ImageSlider = () => {
   return (
     <div className="relative w-full aspect-square overflow-hidden border border-charcoal/20 bg-charcoal/5 group">
       {/* Slides */}
-      {slides.map((slide, i) => (
+          {slides.map((slide, i) => (
         <div
           key={slide.id}
           className={`absolute inset-0 transition-opacity duration-700 ease-in-out ${i === current ? 'opacity-100 z-10' : 'opacity-0 z-0'}`}
         >
           {slide.src ? (
-            <img src={slide.src} alt={slide.label} className="absolute inset-0 w-full h-full object-cover object-center" />
+            <img src={slide.src} alt={slide.label} loading="lazy" decoding="async" className="absolute inset-0 w-full h-full object-cover object-center" />
           ) : (
             <div className="absolute inset-0 flex flex-col items-center justify-center bg-charcoal/5">
               <div className="absolute inset-0 blueprint-grid opacity-20"></div>
@@ -231,6 +231,8 @@ const HomePage = () => {
                 <img
                   src="/images/main.JPG"
                   alt="Ecobricks Mission"
+                  loading="lazy"
+                  decoding="async"
                   className="absolute inset-0 w-full h-full object-cover"
                   onError={(e) => { e.currentTarget.src = "/images/hero-cover.png"; e.currentTarget.onerror = null; }}
                 />
@@ -356,6 +358,8 @@ const HomePage = () => {
                     <img
                       src={project.image}
                       alt={project.title}
+                      loading="lazy"
+                      decoding="async"
                       className="w-full h-full object-cover opacity-90 transition-transform duration-1000 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-charcoal/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
